@@ -1,0 +1,3 @@
+include ':guide_pro'
+include ':app'
+rootProject.name = "GuideSample"
