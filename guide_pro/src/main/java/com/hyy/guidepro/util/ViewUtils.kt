@@ -1,4 +1,4 @@
-package com.hyy.guidepro
+package com.hyy.guidepro.util
 
 import android.content.res.Resources
 import android.graphics.RectF
@@ -62,3 +62,17 @@ val Float.sp
         this,
         Resources.getSystem().displayMetrics
     )
+
+val Int.dp
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics
+    ).toInt()
+
+val Int.sp
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_SP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics
+    ).toInt()

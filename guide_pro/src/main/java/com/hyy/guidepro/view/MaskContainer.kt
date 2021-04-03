@@ -18,7 +18,7 @@ import com.hyy.guidepro.GuideProImpl
  * [MaskContainer] will be add on the [GuideProImpl]
  * 我们写的tipsView
  */
-class MaskContainer constructor(context: Context, attributeSet: AttributeSet? = null) :
+internal class MaskContainer constructor(context: Context, attributeSet: AttributeSet? = null) :
     FrameLayout(context, attributeSet) {
 
     private var rootWidth: Int = 0

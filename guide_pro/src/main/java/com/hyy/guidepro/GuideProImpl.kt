@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
 import com.hyy.guidepro.parameter.GuideParameter
 import com.hyy.guidepro.shape.RectShape
+import com.hyy.guidepro.util.calculateHighLightViewRect
+import com.hyy.guidepro.util.dp
+import com.hyy.guidepro.util.isAttachToWindow
 import com.hyy.guidepro.view.MaskContainer
 
 /**
