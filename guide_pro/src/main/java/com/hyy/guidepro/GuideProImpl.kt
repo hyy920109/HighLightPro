@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
+import androidx.fragment.app.Fragment
 import com.hyy.guidepro.parameter.GuideParameter
 import com.hyy.guidepro.shape.RectShape
 import com.hyy.guidepro.util.calculateHighLightViewRect
@@ -18,23 +19,26 @@ import com.hyy.guidepro.view.MaskContainer
  * All [GuidePro]'s method implementation show in this class
  * and [GuideProImpl] is the core class in this library
  */
-class GuideProImpl : GuideViewInteractiveAction {
+internal class GuideProImpl : GuideViewInteractiveAction {
 
     companion object {
-        const val TAG = "GuideViewImpl"
+        const val TAG = "HYY-GuideProImpl"
     }
 
+    private var isFragmentRoot: Boolean = false
+    private var fragmentRootView: View? = null
     private var curIndex: Int = 0
     private val guideParameters: MutableList<List<GuideParameter>> = mutableListOf()
     private var hasShow: Boolean = false
     private val rootView: ViewGroup
     private val maskContainer: MaskContainer
     private var released = false
-    private var showCallback: ((index: Int)->Unit)? = null
-    private var dismissCallback: (()->Unit)? = null
+    private var showCallback: ((index: Int) -> Unit)? = null
+    private var dismissCallback: (() -> Unit)? = null
     private var clickCallback: ((View) -> Unit)? = null
     private var autoNext = true
 
+    //    private var
     private val onClickListener = View.OnClickListener {
         clickCallback?.invoke(it)
         if (autoNext) {
@@ -52,15 +56,31 @@ class GuideProImpl : GuideViewInteractiveAction {
         maskContainer = MaskContainer(view.context)
     }
 
+    internal constructor(fragment: Fragment) {
+        if (fragment.view == null)
+            throw IllegalStateException("The fragment's view not created yet,please call this after fragment's onViewCreated()")
+        if (fragment.isDetached)
+            throw IllegalStateException("The fragment have detached. It is not attach to an activity!")
+        rootView = fragment.requireActivity().window.decorView as ViewGroup
+        fragmentRootView = fragment.view
+        isFragmentRoot = true
+        maskContainer = MaskContainer(rootView.context)
+
+    }
+
     override fun show() {
         if (released) return
-
+        println("$TAG show")
         //todo give user access to intercept click event
 //        if (!intercept) {
-            maskContainer.setOnClickListener(onClickListener)
+        maskContainer.setOnClickListener(onClickListener)
 //        }
 
-        if (rootView.isAttachToWindow()) {
+        //if constructor's param is activity or view wo care about rootView's attachedToWindow
+        //if constructor's param is fragment we care about [fragmentRootView]'s width is not 0
+        if ((isFragmentRoot.not() && rootView.isAttachToWindow()) ||
+            (isFragmentRoot && fragmentRootView?.width != 0)
+        ) {
             if (maskContainer.parent == null) {
                 //add guideViewContainer to rootView
                 rootView.addView(
@@ -70,16 +90,39 @@ class GuideProImpl : GuideViewInteractiveAction {
                         ViewGroup.LayoutParams.MATCH_PARENT
                     )
                 )
+                if (maskContainer.interceptBackPressed) {
+                    maskContainer.apply {
+                        isFocusable = true
+                        isFocusableInTouchMode = true
+                        requestFocus()
+                        setOnBackPressedCallback {
+                            dismiss()
+                        }
+                    }
+                }
+
                 showNextHighLightView()
             }
         } else {
-            rootView.doOnPreDraw {
-                //ensure this method will be call once
-                if (hasShow) return@doOnPreDraw
-                hasShow = false
-                show()
+            if (isFragmentRoot) {
+                fragmentRootView?.doOnPreDraw {
+                    println("$TAG fragmentRootView pre draw")
+                    //ensure this method will be call once
+                    if (hasShow) return@doOnPreDraw
+                    hasShow = false
+                    show()
+                }
+            } else {
+                rootView.doOnPreDraw {
+                    //ensure this method will be call once
+                    if (hasShow) return@doOnPreDraw
+                    hasShow = false
+                    show()
+                }
             }
+
         }
+
     }
 
     /**
@@ -118,8 +161,7 @@ class GuideProImpl : GuideViewInteractiveAction {
             parameter.highLightView = rootView.findViewById(parameter.highLightViewId)
         }
 
-        if (parameter.tipsView == null) {
-            checkViewId(parameter)
+        if (parameter.tipsView == null && checkTipViewIdIsValid(parameter)) {
             parameter.tipsView = LayoutInflater.from(maskContainer.context)
                 .inflate(parameter.tipsViewId, null)
         }
@@ -131,9 +173,8 @@ class GuideProImpl : GuideViewInteractiveAction {
         parameter.calculateHighLightViewRect()
     }
 
-    private fun checkViewId(parameter: GuideParameter) {
-        if (parameter.tipsViewId == -1) throw IllegalArgumentException("the viewId is Illegal. please check your arguments")
-    }
+    private fun checkTipViewIdIsValid(parameter: GuideParameter): Boolean = parameter.tipsViewId != -1
+
 
     private fun hasHighLightView(): Boolean = guideParameters.isNotEmpty()
 
@@ -142,6 +183,9 @@ class GuideProImpl : GuideViewInteractiveAction {
         //release every thing
         released = true
         //todo if we want have a dismiss animation these code need rewrite
+        maskContainer.isFocusable = false
+        maskContainer.clearFocus()
+
         rootView.removeView(maskContainer)
         maskContainer.removeAllViews()
         dismissCallback?.invoke()
@@ -174,7 +218,11 @@ class GuideProImpl : GuideViewInteractiveAction {
     }
 
     fun enableHighlight(enableHighlight: Boolean) {
-        this.maskContainer.enableHighlight(enableHighlight)
+        this.maskContainer.enableHighlight = enableHighlight
+    }
+
+    fun interceptBackPressed(interceptBackPressed: Boolean) {
+        this.maskContainer.interceptBackPressed = interceptBackPressed
     }
 
 }

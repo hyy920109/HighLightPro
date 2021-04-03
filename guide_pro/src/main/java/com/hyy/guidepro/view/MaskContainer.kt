@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Region
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.View
 import android.widget.FrameLayout
 import androidx.core.graphics.toColorInt
@@ -15,8 +16,8 @@ import com.hyy.guidepro.GuideProImpl
 
 /**
  *Create by hyy on 2021/2/6
- * [MaskContainer] will be add on the [GuideProImpl]
- * 我们写的tipsView
+ * [MaskContainer] will be add on the [GuideProImpl]'s rootView
+ * [GuideParameter]'s tipView will be add on [MaskContainer]
  */
 internal class MaskContainer constructor(context: Context, attributeSet: AttributeSet? = null) :
     FrameLayout(context, attributeSet) {
@@ -31,7 +32,9 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
     private val defaultBgColor: Int
         get() = "#00000000".toColorInt()
 
-    private var enableHighlight = true
+    private var backPressedCallback: (() -> Unit)? = null
+    internal var enableHighlight = true
+    internal var interceptBackPressed = false
 
     init {
         setWillNotDraw(false)
@@ -75,6 +78,18 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
     override fun setBackgroundColor(color: Int) {
 //        super.setBackgroundColor(color)
         bgColor = color
+    }
+
+    fun setOnBackPressedCallback(block: () -> Unit) {
+        backPressedCallback = block
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            backPressedCallback?.invoke()
+            return interceptBackPressed
+        }
+        return super.onKeyDown(keyCode, event)
     }
 
     fun setHighLightParameters(list: List<GuideParameter>) {
@@ -164,8 +179,8 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
             }
         }
         gravities.forEachIndexed { index, gravity ->
-          if (index == 0) layoutParams.gravity = gravity
-          else   layoutParams.gravity = layoutParams.gravity or gravity
+            if (index == 0) layoutParams.gravity = gravity
+            else layoutParams.gravity = layoutParams.gravity or gravity
         }
         return layoutParams
     }
@@ -183,7 +198,4 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
         this.rootHeight = height
     }
 
-    fun enableHighlight(enableHighlight: Boolean) {
-        this.enableHighlight = enableHighlight
-    }
 }

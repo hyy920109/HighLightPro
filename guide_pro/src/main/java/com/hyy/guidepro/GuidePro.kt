@@ -3,6 +3,7 @@ package com.hyy.guidepro
 import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.hyy.guidepro.parameter.GuideParameter
 import com.hyy.guidepro.view.MaskContainer
 
@@ -19,6 +20,10 @@ class GuidePro : GuideViewInteractiveAction {
 
     private constructor(activity: Activity) {
         guideProImpl = GuideProImpl(activity)
+    }
+
+    private constructor(fragment: Fragment) {
+        guideProImpl = GuideProImpl(fragment)
     }
 
     private constructor(view: ViewGroup) {
@@ -98,6 +103,14 @@ class GuidePro : GuideViewInteractiveAction {
         return this
     }
 
+    /**
+     * [interceptBackPressed] is [true] will
+     */
+    fun interceptBackPressed(interceptBackPressed: Boolean): GuidePro {
+        guideProImpl.interceptBackPressed(interceptBackPressed)
+        return this
+    }
+
     companion object {
 
         /**
@@ -105,6 +118,10 @@ class GuidePro : GuideViewInteractiveAction {
          */
         fun with(activity: Activity): GuidePro {
             return GuidePro(activity)
+        }
+
+        fun with(fragment: Fragment): GuidePro {
+            return GuidePro(fragment)
         }
 
         /**
