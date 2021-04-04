@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">GuideSample</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="highlight_sample">Highlight Sample</string>
     <string name="popup_window">Popup Window Sample</string>
     <string name="hello_world">Hello World</string>
+    <string name="constraints_horizontal">Constraints Horizontal</string>
+    <string name="constraints_start_to_start">Sta to Sta</string>
+    <string name="constraints_start_to_end">Sta to End</string>
+    <string name="constraints_end_to_end">End to End</string>
+    <string name="constrains_end_to_start">End to Sta</string>
+    <string name="constraints_vertical">Constraints Vertical</string>
+    <string name="constraints_top_to_top">Top to Top</string>
+    <string name="constraints_top_to_bottom">Top to Btm</string>
+    <string name="constraints_bottom_to_bottom">Btm to Btm</string>
+    <string name="constraints_bottom_to_top">Btm to Top</string>
+    <string name="show_highlight">Show Highlight</string>
+    <string name="im_here">I\'m here!!</string>
 </resources>

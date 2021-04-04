@@ -104,7 +104,7 @@ class GuidePro : GuideViewInteractiveAction {
     }
 
     /**
-     * [interceptBackPressed] is [true] will
+     * [interceptBackPressed] is [true] will intercept activity onBackPressed and [GuidePro] will dismiss
      */
     fun interceptBackPressed(interceptBackPressed: Boolean): GuidePro {
         guideProImpl.interceptBackPressed(interceptBackPressed)
@@ -127,7 +127,7 @@ class GuidePro : GuideViewInteractiveAction {
         /**
          * the [view] treat as rootView
          */
-        fun withView(view: ViewGroup): GuidePro {
+        fun with(view: ViewGroup): GuidePro {
             return GuidePro(view)
         }
     }

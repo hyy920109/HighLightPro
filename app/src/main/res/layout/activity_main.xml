@@ -3,8 +3,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/container"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:paddingTop="?attr/actionBarSize">
+	android:layout_height="match_parent">
 	
 	<androidx.fragment.app.FragmentContainerView
 		android:id="@+id/nav_host_fragment_container"
@@ -16,7 +15,6 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
 		app:defaultNavHost="true"
-		app:navGraph="@navigation/nav_graph"
-		/>
+		app:navGraph="@navigation/nav_graph" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -109,7 +109,6 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
     private fun addTipsView() {
         highLightViewParameters.forEach {
             it.tipsView?.run {
-                it.constraints
                 val layoutParams = calculateTipsViewLayoutParams(this, it)
                 addView(this, layoutParams)
             }

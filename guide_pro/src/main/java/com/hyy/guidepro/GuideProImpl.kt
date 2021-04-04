@@ -92,6 +92,7 @@ internal class GuideProImpl : GuideViewInteractiveAction {
                 )
                 if (maskContainer.interceptBackPressed) {
                     maskContainer.apply {
+                        //three line below enable maskContainer focusable and got focused
                         isFocusable = true
                         isFocusableInTouchMode = true
                         requestFocus()
@@ -131,10 +132,6 @@ internal class GuideProImpl : GuideViewInteractiveAction {
     private fun showNextHighLightView() {
         if (released) return
 
-//        if (rootView.isAttachToWindow().not()) {
-//            show()
-//            return
-//        }
         println("$TAG showNextHighLightView")
 
         if (hasHighLightView().not()) {
