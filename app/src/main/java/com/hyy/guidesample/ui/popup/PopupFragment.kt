@@ -5,14 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.hyy.guidepro.GuidePro
 import com.hyy.guidepro.parameter.Constraints
 import com.hyy.guidepro.parameter.GuideParameter
 import com.hyy.guidepro.shape.RectShape
 import com.hyy.guidepro.util.dp
 import com.hyy.guidesample.R
-import com.hyy.guidesample.databinding.FragmentHighlightBinding
 import com.hyy.guidesample.databinding.FragmentPopupBinding
 
 class PopupFragment : Fragment() {
@@ -20,14 +18,14 @@ class PopupFragment : Fragment() {
     private var verticalCheckId: Int = R.id.bottom_to_top
     private var horizontalCheckId: Int = R.id.start_to_start
 
-    private lateinit var binding: FragmentHighlightBinding
+    private lateinit var binding: FragmentPopupBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHighlightBinding.inflate(inflater, container, false)
+        binding = FragmentPopupBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,12 +46,12 @@ class PopupFragment : Fragment() {
                 horizontalCheckId = checkedId
             }
         }
-        binding.btnShowHighlight.setOnClickListener {
-            showHighlight()
+        binding.btnTips.setOnClickListener {
+            showPopupWindow()
         }
     }
 
-    private fun showHighlight() {
+    private fun showPopupWindow() {
         GuidePro.with(this)
             .setGuideViewParameter {
                 GuideParameter.Builder()
@@ -63,7 +61,7 @@ class PopupFragment : Fragment() {
                     .setConstraints(getConstraints())
                     .build()
             }
-            .enableHighlight(false)//no highlight
+            .enableHighlight(false)//no highlight now is a popup window
             .interceptBackPressed(true)
             .show()
     }
