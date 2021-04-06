@@ -39,7 +39,7 @@ fun GuideParameter.calculateHighLightViewRect() {
     val rectOnScreen = highLightView.getRectOnScreen()
 
     rect = rectOnScreen
-    rect?.run {
+    rect.run {
         left -= horizontalPadding
         top -= verticalPadding
         right += horizontalPadding

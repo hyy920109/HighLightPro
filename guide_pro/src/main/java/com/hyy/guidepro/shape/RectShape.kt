@@ -11,6 +11,7 @@ class RectShape(private val rx: Float = 0f, private val ry: Float = 0f, private 
     override fun initRect(rectF: RectF) {
         super.initRect(rectF)
         rect?.run {
+            path.reset()
             path.addRoundRect(this, rx, ry, Path.Direction.CW)
         }
     }
