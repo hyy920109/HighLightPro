@@ -23,9 +23,9 @@ class HighlightGuideFragment : Fragment() {
     private lateinit var binding: FragmentHighlightBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         binding = FragmentHighlightBinding.inflate(inflater, container, false)
         return binding.root
@@ -62,23 +62,24 @@ class HighlightGuideFragment : Fragment() {
                     .setHighLightShape(RectShape(4f.dp, 4f.dp, 6f))
                     .setHighLightHorizontalPadding(8f.dp)
                     .setConstraints(getConstraints())
-                    .setMarginOffset(MarginOffset(top = 2.dp))
+                    .setMarginOffset(MarginOffset(4.dp, 4.dp, 4.dp, 4.dp))
                     .build()
             }
             .interceptBackPressed(true)
             .show()
     }
 
-    private fun getConstraints(): List<Constraints> = getVerticalConstraint() + geHorizontalConstraint()
+    private fun getConstraints(): List<Constraints> =
+        getVerticalConstraint() + geHorizontalConstraint()
 
-    private fun getVerticalConstraint() = when(verticalCheckId) {
+    private fun getVerticalConstraint() = when (verticalCheckId) {
         R.id.top_to_top -> Constraints.TopToTopOfHighlight
         R.id.top_to_bottom -> Constraints.TopToBottomOfHighlight
         R.id.bottom_to_bottom -> Constraints.BottomToBottomOfHighlight
         else -> Constraints.BottomToTopOfHighlight
     }
 
-    private fun geHorizontalConstraint() = when(horizontalCheckId) {
+    private fun geHorizontalConstraint() = when (horizontalCheckId) {
         R.id.start_to_start -> Constraints.StartToStartOfHighlight
         R.id.start_to_end -> Constraints.StartToEndOfHighlight
         R.id.end_to_end -> Constraints.EndToEndOfHighlight

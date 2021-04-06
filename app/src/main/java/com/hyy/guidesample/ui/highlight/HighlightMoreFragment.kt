@@ -10,6 +10,8 @@ import com.hyy.guidepro.GuidePro
 import com.hyy.guidepro.parameter.Constraints
 import com.hyy.guidepro.parameter.GuideParameter
 import com.hyy.guidepro.parameter.MarginOffset
+import com.hyy.guidepro.shape.CircleShape
+import com.hyy.guidepro.shape.OvalShape
 import com.hyy.guidepro.shape.RectShape
 import com.hyy.guidepro.util.dp
 import com.hyy.guidesample.R
@@ -56,8 +58,9 @@ class HighlightMoreFragment : Fragment() {
                 GuideParameter.Builder()
                     .setHighLightViewId(R.id.btn_step_second)
                     .setTipsViewId(R.layout.guide_step_second)
-                    .setHighLightShape(RectShape(4f.dp, 4f.dp, 6f))
-                    .setHighLightHorizontalPadding(8f.dp)
+                    .setHighLightShape(CircleShape())
+                    .setHighLightHorizontalPadding(20f.dp)
+                    .setHighLightVerticalPadding(20f.dp)
                     .setConstraints(Constraints.TopToBottomOfHighlight + Constraints.EndToEndOfHighlight)
                     .setMarginOffset(MarginOffset(top = 8.dp))
                     .build()
@@ -66,8 +69,9 @@ class HighlightMoreFragment : Fragment() {
                 GuideParameter.Builder()
                     .setHighLightViewId(R.id.btn_step_third)
                     .setTipsViewId(R.layout.guide_step_third)
-                    .setHighLightShape(RectShape(4f.dp, 4f.dp, 6f))
-                    .setHighLightHorizontalPadding(8f.dp)
+                    .setHighLightShape(OvalShape())
+                    .setHighLightHorizontalPadding(12f.dp)
+                    .setHighLightVerticalPadding(12f.dp)
                     .setConstraints(Constraints.BottomToTopOfHighlight + Constraints.EndToEndOfHighlight)
                     .setMarginOffset(MarginOffset(bottom = 6.dp))
                     .build()
