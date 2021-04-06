@@ -13,17 +13,24 @@
         <action
             android:id="@+id/action_mainFragment_to_highlightGuideFragment"
             app:destination="@id/highlightGuideFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_mainFragment_to_popupFragment"
             app:destination="@id/popupFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_highlightMoreFragment"
+            app:destination="@id/highlightMoreFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/highlightGuideFragment"
@@ -35,4 +42,8 @@
         android:name="com.hyy.guidesample.ui.popup.PopupFragment"
         android:label="fragment_popup"
         tools:layout="@layout/fragment_popup" />
+    <fragment
+        android:id="@+id/highlightMoreFragment"
+        android:name="com.hyy.guidesample.ui.highlight.HighlightMoreFragment"
+        android:label="HighlightMoreFragment" />
 </navigation>

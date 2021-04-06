@@ -4,16 +4,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.hyy.guidesample.ui.view.TriangleView
-        android:id="@+id/arrow_top"
-        android:layout_width="12dp"
-        android:layout_height="8dp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tv_arrow_dir="dir_top" />
-
     <LinearLayout
+        android:id="@+id/ll_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_round_rect"
@@ -21,7 +13,7 @@
         android:paddingHorizontal="12dp"
         android:paddingVertical="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrow_top">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_tips"
@@ -39,10 +31,18 @@
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
             android:layout_marginTop="12dp"
-            android:text="@string/step_first"
+            android:text="@string/step_third"
             android:layout_gravity="end"
             android:textColor="@color/white" />
 
     </LinearLayout>
 
+    <com.hyy.guidesample.ui.view.TriangleView
+        android:id="@+id/arrow_top"
+        android:layout_width="12dp"
+        android:layout_height="8dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_container"
+        app:tv_arrow_dir="dir_bottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

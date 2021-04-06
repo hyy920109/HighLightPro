@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">GuideSample</string>
+    <string name="highlight_sample_more">Highlight Sample More Steps</string>
     <string name="highlight_sample">Highlight Sample</string>
     <string name="popup_window">Popup Window Sample</string>
     <string name="hello_world">Hello World</string>
@@ -15,5 +16,13 @@
     <string name="constraints_bottom_to_top">Btm to Top</string>
     <string name="show_highlight">Show Highlight</string>
     <string name="im_here">I\'m here!!</string>
-    <string name="click_show_popup_window_des">Click right icon show popup window</string>
+    <string name="click_here_to_next_step">Click here to next step</string>
+    <string name="im_here_multi_line">I\'m here!!\nI\'m here!!\nI\'m here!!\nI\'m here!!</string>
+    <string name="click_show_popup_window_des_bottom">Click right icon show popup window bottom</string>
+    <string name="click_show_popup_window_des_top">Click right icon show popup window top</string>
+    <string name="click_show_popup_window_des_left">Click right icon show popup window left</string>
+    <string name="click_show_popup_window_des_right">Click right icon show popup window right</string>
+    <string name="step_first">First Step</string>
+    <string name="step_second">Second Step</string>
+    <string name="step_third">Third Step</string>
 </resources>

@@ -39,7 +39,7 @@
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
             android:layout_marginTop="12dp"
-            android:text="@string/step_first"
+            android:text="@string/step_second"
             android:layout_gravity="end"
             android:textColor="@color/white" />
 

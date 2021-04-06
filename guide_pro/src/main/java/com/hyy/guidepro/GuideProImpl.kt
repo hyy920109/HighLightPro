@@ -97,7 +97,7 @@ internal class GuideProImpl : GuideViewInteractiveAction {
                         isFocusableInTouchMode = true
                         requestFocus()
                         setOnBackPressedCallback {
-                            dismiss()
+                            showNextHighLightView()
                         }
                     }
                 }

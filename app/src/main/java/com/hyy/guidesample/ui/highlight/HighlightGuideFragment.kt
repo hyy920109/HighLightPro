@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.hyy.guidepro.GuidePro
 import com.hyy.guidepro.parameter.Constraints
 import com.hyy.guidepro.parameter.GuideParameter
+import com.hyy.guidepro.parameter.MarginOffset
 import com.hyy.guidepro.shape.RectShape
 import com.hyy.guidepro.util.dp
 import com.hyy.guidesample.R
@@ -16,8 +17,8 @@ import com.hyy.guidesample.databinding.FragmentHighlightBinding
 
 class HighlightGuideFragment : Fragment() {
 
-    private var verticalCheckId: Int = R.id.bottom_to_top
-    private var horizontalCheckId: Int = R.id.start_to_start
+    private var verticalCheckId: Int = R.id.top_to_bottom
+    private var horizontalCheckId: Int = R.id.end_to_end
 
     private lateinit var binding: FragmentHighlightBinding
 
@@ -61,6 +62,7 @@ class HighlightGuideFragment : Fragment() {
                     .setHighLightShape(RectShape(4f.dp, 4f.dp, 6f))
                     .setHighLightHorizontalPadding(8f.dp)
                     .setConstraints(getConstraints())
+                    .setMarginOffset(MarginOffset(top = 2.dp))
                     .build()
             }
             .interceptBackPressed(true)

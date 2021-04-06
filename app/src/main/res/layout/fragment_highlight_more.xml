@@ -4,47 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainFragment">
+    tools:context=".ui.highlight.HighlightGuideFragment">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_highlight_more"
+        android:id="@+id/btn_step_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/highlight_sample_more"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/step_first"
+        android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_highlight"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_step_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/step_second"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_highlight"
+        android:id="@+id/btn_step_third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/highlight_sample"
+        android:layout_marginEnd="15dp"
+        android:text="@string/step_third"
+        android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_popup"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_highlight_more" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_popup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/popup_window"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_highlight" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
