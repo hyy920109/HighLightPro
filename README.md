@@ -18,11 +18,11 @@
 
 ##### Sample screenshots:
 
-![guide_pro](https://github.com/hyy920109/HighLightPro/master/screenshots/highlight_pro.gif)
+![guide_pro](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro.gif)
 
 
 
-![guide_pro_popup_window](https://github.com/hyy920109/HighLightPro/master/screenshots/highlight_pro_popup.gif)
+![guide_pro_popup_window](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro_popup.gif)
 
 ##### Basic usage:
 
