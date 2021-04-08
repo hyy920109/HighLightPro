@@ -1,10 +1,8 @@
 plugins {
     id 'com.android.library'
-    id 'com.github.dcendents.android-maven'
+    id 'com.novoda.bintray-release'
     id 'kotlin-android'
 }
-
-group = 'com.github.hyy920109'
 
 android {
     compileSdkVersion 29
@@ -33,6 +31,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    lintOptions { // 新增
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -45,6 +47,16 @@ dependencies {
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+publish {
+    userOrg = 'heyangyang'
+    groupId = 'com.hyy'
+    artifactId = 'highlightpro'
+    publishVersion = '1.0.2'
+    desc = 'A highlight lib for android and also it can be a simple popup window lib for android'
+    website = 'https://github.com/hyy920109/HighLightPro'
+}
+
 repositories {
     mavenCentral()
 }
