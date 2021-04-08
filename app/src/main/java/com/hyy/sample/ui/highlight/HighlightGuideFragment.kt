@@ -57,10 +57,10 @@ class HighlightGuideFragment : Fragment() {
         HighlightPro.with(this)
             .setHighlightParameter {
                 HighlightParameter.Builder()
-                    .setHighLightViewId(R.id.btn_hello_world)
+                    .setHighlightViewId(R.id.btn_hello_world)
                     .setTipsViewId(R.layout.guide_tips_layout)
-                    .setHighLightShape(RectShape(4f.dp, 4f.dp, 6f))
-                    .setHighLightHorizontalPadding(8f.dp)
+                    .setHighlightShape(RectShape(4f.dp, 4f.dp, 6f))
+                    .setHighlightHorizontalPadding(8f.dp)
                     .setConstraints(getConstraints())
                     .setMarginOffset(MarginOffset(4.dp, 4.dp, 4.dp, 4.dp))
                     .build()

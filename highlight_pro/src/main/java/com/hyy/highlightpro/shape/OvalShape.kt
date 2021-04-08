@@ -6,7 +6,7 @@ import android.graphics.RectF
 /**
  *Create by hyy on 2021/2/7
  */
-class OvalShape(private val radius: Float = 0f) : HighLightShape(radius) {
+class OvalShape(private val radius: Float = 0f) : HighlightShape(radius) {
 
     override fun initRect(rectF: RectF) {
         super.initRect(rectF)

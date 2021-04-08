@@ -7,7 +7,7 @@ import kotlin.math.max
 /**
  *Create by hyy on 2021/2/7
  */
-class CircleShape(private val radius: Float = 0f) : HighLightShape(radius) {
+class CircleShape(private val radius: Float = 0f) : HighlightShape(radius) {
 
     override fun initRect(rectF: RectF) {
         super.initRect(rectF)

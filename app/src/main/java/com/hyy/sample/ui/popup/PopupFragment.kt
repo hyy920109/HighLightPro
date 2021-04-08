@@ -51,7 +51,7 @@ class PopupFragment : Fragment() {
         HighlightPro.with(this)
             .setHighlightParameter {
                 HighlightParameter.Builder()
-                    .setHighLightViewId(R.id.btn_tips_bottom)
+                    .setHighlightViewId(R.id.btn_tips_bottom)
                     .setTipsViewId(R.layout.pop_tips_layout_bottom)
                     .setConstraints(Constraints.TopToBottomOfHighlight + Constraints.EndToEndOfHighlight)
                     .setMarginOffset(MarginOffset(end = (-2).dp))
@@ -66,7 +66,7 @@ class PopupFragment : Fragment() {
         HighlightPro.with(this)
             .setHighlightParameter {
                 HighlightParameter.Builder()
-                    .setHighLightViewId(R.id.btn_tips_top)
+                    .setHighlightViewId(R.id.btn_tips_top)
                     .setTipsViewId(R.layout.pop_tips_layout_top)
                     .setConstraints(Constraints.BottomToTopOfHighlight + Constraints.EndToEndOfHighlight)
                     .setMarginOffset(MarginOffset(end = (-2).dp))
@@ -81,7 +81,7 @@ class PopupFragment : Fragment() {
         HighlightPro.with(this)
             .setHighlightParameter {
                 HighlightParameter.Builder()
-                    .setHighLightViewId(R.id.btn_tips_left)
+                    .setHighlightViewId(R.id.btn_tips_left)
                     .setTipsViewId(R.layout.pop_tips_layout_left)
                     .setConstraints(Constraints.EndToStartOfHighlight + Constraints.TopToTopOfHighlight)
                     .setMarginOffset(MarginOffset(top = (-2).dp))
@@ -96,7 +96,7 @@ class PopupFragment : Fragment() {
         HighlightPro.with(this)
             .setHighlightParameter {
                 HighlightParameter.Builder()
-                    .setHighLightViewId(R.id.btn_tips_right)
+                    .setHighlightViewId(R.id.btn_tips_right)
                     .setTipsViewId(R.layout.pop_tips_layout_right)
                     .setConstraints(Constraints.StartToEndOfHighlight + Constraints.TopToTopOfHighlight)
                     .setMarginOffset(MarginOffset(top = (-2).dp))

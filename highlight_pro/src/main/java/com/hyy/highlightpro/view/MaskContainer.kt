@@ -51,7 +51,7 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
 
             //clip rect
             highLightViewParameters.forEach { parameter ->
-                parameter.highLightShape?.run {
+                parameter.highlightShape?.run {
                     canvas.clipPath(path, Region.Op.DIFFERENCE)
                 }
             }
@@ -62,7 +62,7 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
             canvas.drawColor(bgColor)
 
             highLightViewParameters.forEach { parameter ->
-                parameter.highLightShape?.run {
+                parameter.highlightShape?.run {
                     drawPath(canvas)
                 }
             }

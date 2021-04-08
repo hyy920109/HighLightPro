@@ -45,7 +45,7 @@ fun HighlightParameter.calculateHighLightViewRect() {
         right += horizontalPadding
         bottom += verticalPadding
 
-        highLightShape?.initRect(this)
+        highlightShape?.initRect(this)
     }
 }
 

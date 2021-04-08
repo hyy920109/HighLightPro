@@ -163,8 +163,8 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
                 .inflate(parameter.tipsViewId, null)
         }
 
-        if (parameter.highLightShape == null) {
-            parameter.highLightShape = RectShape(2f.dp, 2f.dp, 2f.dp)
+        if (parameter.highlightShape == null) {
+            parameter.highlightShape = RectShape(2f.dp, 2f.dp, 2f.dp)
         }
 
         parameter.calculateHighLightViewRect()
