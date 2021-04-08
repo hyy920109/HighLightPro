@@ -38,7 +38,7 @@ dependencies {
 
 #### Code Sample
 
-You can start with any of **activity**   **fragment**  **viewGroup** like the below code:
+You can start with one of **Activity** or **Fragment**  or  **ViewGroup** like the below code:
 
 ```kotlin
 /**
@@ -84,11 +84,10 @@ HighlightPro.with(this)
             .setOnDismissCallback {
                 //do something
             }
-            .interceptBackPressed(true)//BackPressed will dismiss the HighligthPro default not intercepted
             .show()
 ```
 
-Or sometimes you want to show more highlight views at once:
+Sometimes  you want to show more highlight views at once:
 
 ```kotlin
 HighlightPro.with(this)
@@ -121,7 +120,7 @@ HighlightPro.with(this)
             .show()
 ```
 
-Or sometimes we want display some steps highlight guide:
+Sometimes  we want display some steps highlight guide:
 
 ```kotlin
 HighlightPro.with(this)
@@ -168,7 +167,7 @@ HighlightPro.with(this)
     .show()
 ```
 
-Or sometimes we want disable highlight, it can also be a popup window:
+Sometimes we want disable highlight, it can also be a popup window:
 
 ```kotlin
 HighlightPro.with(this)
@@ -197,7 +196,7 @@ HighlightPro.with(this)
 | setTipsView                   | Set tips view                                                |
 | setHighlightShape             | Set shape of highlight                                       |
 | setHighlightVerticalPadding   | Set v-padding of highlight rectangle                         |
-| setHighlightHorizontalPadding | Set v-padding of highlight rectangle                         |
+| setHighlightHorizontalPadding | Set h-padding of highlight rectangle                         |
 | setConstraints                | Set constraints of tips view                                 |
 | setMarginOffset               | Set tips view's margin relative highlight rectangle          |
 | build                         | To create a [HighlightParameter](https://github.com/hyy920109/HighLightPro/blob/master/highlight_pro/src/main/java/com/hyy/highlightpro/parameter/HighlightParameter.kt)  object |
@@ -253,7 +252,7 @@ Of course, we can set margin offsets  to adjust position by :
 setMarginOffset(MarginOffset(start = 8.dp))
 ```
 
-##### End
+### End
 
 Above we introduce all usages of [HighlightPro](https://github.com/hyy920109/HighLightPro) , if it helps you ,  star please. Or if you have some good advice, pull request is open to you. At the end of  introduce , thanks for [Lighter](https://github.com/samlss/Lighter) ‘s author, some of  thinking from it.
 
