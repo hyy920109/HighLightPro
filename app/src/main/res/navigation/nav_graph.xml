@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.hyy.guidesample.ui.main.MainFragment"
+        android:name="com.hyy.sample.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
         <action
@@ -34,16 +34,16 @@
     </fragment>
     <fragment
         android:id="@+id/highlightGuideFragment"
-        android:name="com.hyy.guidesample.ui.highlight.HighlightGuideFragment"
+        android:name="com.hyy.sample.ui.highlight.HighlightGuideFragment"
         android:label="fragment_highlight"
         tools:layout="@layout/fragment_highlight" />
     <fragment
         android:id="@+id/popupFragment"
-        android:name="com.hyy.guidesample.ui.popup.PopupFragment"
+        android:name="com.hyy.sample.ui.popup.PopupFragment"
         android:label="fragment_popup"
         tools:layout="@layout/fragment_popup" />
     <fragment
         android:id="@+id/highlightMoreFragment"
-        android:name="com.hyy.guidesample.ui.highlight.HighlightMoreFragment"
+        android:name="com.hyy.sample.ui.highlight.HighlightMoreFragment"
         android:label="HighlightMoreFragment" />
 </navigation>

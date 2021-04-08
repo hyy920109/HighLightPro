@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.hyy.guidesample.ui.view.TriangleView
+    <com.hyy.sample.ui.view.TriangleView
         android:id="@+id/arrow_right"
         android:layout_width="8dp"
         android:layout_height="12dp"

@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.hyy.guidesample.ui.view.TriangleView
+    <com.hyy.sample.ui.view.TriangleView
         android:id="@+id/arrow_bottom"
         android:layout_width="12dp"
         android:layout_height="8dp"
