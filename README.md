@@ -256,5 +256,5 @@ setMarginOffset(MarginOffset(start = 8.dp))
 
 ### End
 
-Above we introduce all usages of [HighlightPro](https://github.com/hyy920109/HighLightPro) , if it helps you ,  star please. Or if you have some good advice, pull request is open to you. At the end of  introduce , thanks for [Lighter](https://github.com/samlss/Lighter) ‘s author, some of  thinking from it.
+Above we introduce all usages of [HighlightPro](https://github.com/hyy920109/HighLightPro) , if it helps you ,  star please. Or if you have some good advice, welcome commit a pull request.
 
