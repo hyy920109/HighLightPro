@@ -1,5 +1,7 @@
 # HighlightPro
 
+[中文](https://github.com/hyy920109/HighLightPro/blob/master/README_CN.md)
+
 **HighlightPro** is a highlight library for android and also it can be a simple popup window library for android.
 
 ### Features:
