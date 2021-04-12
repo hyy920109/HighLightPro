@@ -4,6 +4,7 @@
     <string name="highlight_sample">Highlight Sample</string>
     <string name="popup_window">Popup Window Sample</string>
     <string name="recycler_view_sample">RecyclerView Sample</string>
+    <string name="dialog_sample">Dialog Sample</string>
     <string name="hello_world">Hello World</string>
     <string name="constraints_horizontal">Constraints Horizontal</string>
     <string name="constraints_start_to_start">Sta to Sta</string>
@@ -26,4 +27,7 @@
     <string name="step_first">First Step</string>
     <string name="step_second">Second Step</string>
     <string name="step_third">Third Step</string>
+    <string name="show_dialog">Show Dialog</string>
+    <string name="highlight_one">Highlight One</string>
+    <string name="highlight_two">Highlight Two</string>
 </resources>
