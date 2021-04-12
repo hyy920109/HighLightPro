@@ -103,4 +103,5 @@ class HighlightMoreFragment : Fragment() {
             }
         }
     }
+
 }
