@@ -187,7 +187,6 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
         return layoutParams
     }
 
-
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         highLightViewParameters.clear()
