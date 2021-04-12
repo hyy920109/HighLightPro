@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.hyy.sample.R
 import com.hyy.sample.databinding.FragmentMainBinding
+import com.hyy.sample.ui.dialog.CustomDialog
 
 class MainFragment : Fragment() {
 
@@ -43,8 +44,12 @@ class MainFragment : Fragment() {
         }
 
         binding.btnDialog.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_dialogFragment)
+            showDialog()
         }
+    }
+
+    private fun showDialog() {
+        CustomDialog().show(childFragmentManager, CustomDialog.TAG)
     }
 
     companion object {

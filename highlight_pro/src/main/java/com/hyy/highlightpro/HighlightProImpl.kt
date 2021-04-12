@@ -142,8 +142,8 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
             }
             showCallback?.invoke(curIndex)
             curIndex++
-            maskContainer.setRootWidth(rootView.width)//ignore padding
-            maskContainer.setRootHeight(rootView.height)//ignore padding
+            maskContainer.setRootWidth(rootView.width-rootView.paddingLeft-rootView.paddingRight)//ignore padding
+            maskContainer.setRootHeight(rootView.height-rootView.paddingTop-rootView.paddingBottom)//ignore padding
             maskContainer.setHighLightParameters(highlightParameters[0])
             highlightParameters.removeAt(0)
         }
@@ -167,7 +167,7 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
             parameter.highlightShape = RectShape(2f.dp, 2f.dp, 2f.dp)
         }
 
-        parameter.calculateHighLightViewRect()
+        parameter.calculateHighLightViewRect(rootView)
     }
 
     private fun checkTipViewIdIsValid(parameter: HighlightParameter): Boolean = parameter.tipsViewId != -1

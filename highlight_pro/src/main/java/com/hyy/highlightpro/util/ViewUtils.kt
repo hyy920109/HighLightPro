@@ -5,6 +5,7 @@ import android.graphics.RectF
 import android.os.Build
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import com.hyy.highlightpro.parameter.HighlightParameter
 
 /**
@@ -34,10 +35,21 @@ fun View?.getRectOnScreen(): RectF {
     }
 }
 
-fun HighlightParameter.calculateHighLightViewRect() {
-    println("HYY->> $highLightView")
+fun HighlightParameter.calculateHighLightViewRect(rootView: ViewGroup) {
     val rectOnScreen = highLightView.getRectOnScreen()
 
+    //consider rootView's position
+    val rootViewPos = IntArray(2)
+    rootView.getLocationOnScreen(rootViewPos)
+    rectOnScreen.left -= rootViewPos[0]
+    rectOnScreen.right -= rootViewPos[0]
+    rectOnScreen.top -= rootViewPos[1]
+    rectOnScreen.bottom -= rootViewPos[1]
+
+    rectOnScreen.left -= rootView.paddingLeft.toFloat()
+    rectOnScreen.right -= rootView.paddingLeft.toFloat()
+    rectOnScreen.top -= rootView.paddingTop.toFloat()
+    rectOnScreen.bottom -= rootView.paddingTop.toFloat()
     rect = rectOnScreen
     rect.run {
         left -= horizontalPadding

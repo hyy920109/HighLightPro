@@ -8,19 +8,18 @@ import android.graphics.*
  */
 open class HighlightShape(val blurRadius: Float = 0.0f) {
 
-    protected val paint by lazy {
-        Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            isDither = true
-            color = Color.WHITE
-        }
-    }
+    private lateinit var paint: Paint
 
-    //抠图的path
+    //clip path
     internal val path by lazy {
         Path()
     }
 
     init {
+        paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            isDither = true
+            color = Color.WHITE
+        }
         //paint blue style
         if (blurRadius > 0) {
             paint.maskFilter = BlurMaskFilter(blurRadius, BlurMaskFilter.Blur.SOLID)
@@ -45,5 +44,9 @@ open class HighlightShape(val blurRadius: Float = 0.0f) {
                 canvas.drawPath(path, paint)
             }
         }
+    }
+
+    fun setPaint(paint: Paint) {
+        this.paint = paint
     }
 }

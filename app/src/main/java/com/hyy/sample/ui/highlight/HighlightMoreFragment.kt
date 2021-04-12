@@ -18,6 +18,7 @@ import com.hyy.highlightpro.util.dp
 import com.hyy.sample.R
 import com.hyy.sample.databinding.FragmentHighlightMoreBinding
 import com.hyy.sample.ui.util.AnimUtil
+import com.hyy.sample.ui.util.PaintUtils
 
 class HighlightMoreFragment : Fragment() {
 
@@ -61,7 +62,7 @@ class HighlightMoreFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_step_second)
                     .setTipsViewId(R.layout.guide_step_second)
-                    .setHighlightShape(CircleShape())
+                    .setHighlightShape(CircleShape().apply { setPaint(PaintUtils.getDashPaint()) })
                     .setHighlightHorizontalPadding(20f.dp)
                     .setHighlightVerticalPadding(20f.dp)
                     .setConstraints(Constraints.TopToBottomOfHighlight + Constraints.EndToEndOfHighlight)
