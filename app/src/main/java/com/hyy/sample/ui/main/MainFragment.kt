@@ -41,6 +41,10 @@ class MainFragment : Fragment() {
         binding.btnRecyclerView.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_recyclerViewFragment)
         }
+
+        binding.btnDialog.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_dialogFragment)
+        }
     }
 
     companion object {

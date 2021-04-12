@@ -1,6 +1,7 @@
 package com.hyy.sample.ui.highlight
 
 import android.graphics.Rect
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ import com.hyy.highlightpro.util.dp
 import com.hyy.sample.R
 import com.hyy.sample.databinding.FragmentRecyclerViewBinding
 import com.hyy.sample.ui.adapter.RecyclerViewAdapter
+import com.hyy.sample.ui.util.AnimUtil
 
 class RecyclerViewFragment : Fragment() {
 
@@ -98,6 +100,7 @@ class RecyclerViewFragment : Fragment() {
                     .setHighlightVerticalPadding(4f.dp)
                     .setConstraints(Constraints.StartToStartOfHighlight + Constraints.BottomToTopOfHighlight)
                     .setMarginOffset(MarginOffset(start = 8.dp))
+                    .setTipViewDisplayAnimation(AnimUtil.getScaleAnimation())
                     .build()
             }
             .setBackgroundColor("#80000000".toColorInt())
