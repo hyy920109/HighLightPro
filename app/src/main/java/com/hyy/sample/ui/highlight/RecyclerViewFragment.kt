@@ -1,5 +1,6 @@
 package com.hyy.sample.ui.highlight
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,11 @@ import androidx.core.graphics.toColorInt
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.hyy.highlightpro.HighlightPro
 import com.hyy.highlightpro.parameter.Constraints
 import com.hyy.highlightpro.parameter.HighlightParameter
 import com.hyy.highlightpro.parameter.MarginOffset
-import com.hyy.highlightpro.shape.CircleShape
-import com.hyy.highlightpro.shape.OvalShape
 import com.hyy.highlightpro.shape.RectShape
 import com.hyy.highlightpro.util.dp
 import com.hyy.sample.R
@@ -36,7 +36,7 @@ class RecyclerViewFragment : Fragment() {
         )
     }
 
-    private val mAdapter by lazy {
+    private val adapter by lazy {
         RecyclerViewAdapter()
     }
 
@@ -59,11 +59,30 @@ class RecyclerViewFragment : Fragment() {
         binding.recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext())
-            mAdapter.setList(dataList)
-            adapter = mAdapter
+            this@RecyclerViewFragment.adapter.setList(dataList)
+            adapter = this@RecyclerViewFragment.adapter
+            addItemDecoration(object : RecyclerView.ItemDecoration() {
+                override fun getItemOffsets(
+                    outRect: Rect,
+                    view: View,
+                    parent: RecyclerView,
+                    state: RecyclerView.State
+                ) {
+                    super.getItemOffsets(outRect, view, parent, state)
+                    val position = parent.getChildAdapterPosition(view)
+                    if (position == 0) {
+                        outRect.top = 12.dp
+                        outRect.bottom = 12.dp
+                    }else {
+                        outRect.bottom = 12.dp
+                    }
+                    outRect.left = 12.dp
+                    outRect.right = 12.dp
+                }
+            })
         }
 
-        mAdapter.setOnItemClickListener { adapter, view, position ->
+        adapter.setOnItemClickListener { adapter, view, position ->
             showHighLight(view)
         }
     }
@@ -94,7 +113,7 @@ class RecyclerViewFragment : Fragment() {
 
 
     companion object {
-        const val TAG = "HYY-HighlightGuideFragment"
+        const val TAG = "HYY-RecyclerViewFragment"
 
         fun create(): RecyclerViewFragment {
             return RecyclerViewFragment().apply {
