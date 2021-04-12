@@ -23,4 +23,5 @@ object AnimUtil {
         scaleAnimator.interpolator = BounceInterpolator()
         return scaleAnimator
     }
+
 }

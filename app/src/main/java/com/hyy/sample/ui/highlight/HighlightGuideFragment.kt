@@ -105,4 +105,5 @@ class HighlightGuideFragment : Fragment() {
             }
         }
     }
+
 }
