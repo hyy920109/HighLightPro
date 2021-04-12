@@ -13,7 +13,7 @@ class CircleShape(private val radius: Float = 0f) : HighLightShape(radius) {
         super.initRect(rectF)
         rect?.run {
             path.reset()
-            path.addCircle((left+right)/2,(top+bottom)/2, max(height(),width()) /2,Path.Direction.CW)
+            path.addCircle(centerX(),centerY(), max(height(),width()) /2,Path.Direction.CW)
         }
     }
 }
