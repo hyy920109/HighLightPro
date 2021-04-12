@@ -31,6 +31,14 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+
+        <action
+            android:id="@+id/action_mainFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/highlightGuideFragment"
@@ -46,4 +54,8 @@
         android:id="@+id/highlightMoreFragment"
         android:name="com.hyy.sample.ui.highlight.HighlightMoreFragment"
         android:label="HighlightMoreFragment" />
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="com.hyy.sample.ui.highlight.RecyclerViewFragment"
+        android:label="fragment_recycler_view" />
 </navigation>
