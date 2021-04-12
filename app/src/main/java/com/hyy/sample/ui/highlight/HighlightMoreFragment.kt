@@ -17,6 +17,7 @@ import com.hyy.highlightpro.shape.RectShape
 import com.hyy.highlightpro.util.dp
 import com.hyy.sample.R
 import com.hyy.sample.databinding.FragmentHighlightMoreBinding
+import com.hyy.sample.ui.util.AnimUtil
 
 class HighlightMoreFragment : Fragment() {
 
@@ -53,6 +54,7 @@ class HighlightMoreFragment : Fragment() {
                     .setHighlightHorizontalPadding(8f.dp)
                     .setConstraints(Constraints.StartToEndOfHighlight + Constraints.TopToTopOfHighlight)
                     .setMarginOffset(MarginOffset(start = 8.dp))
+                    .setTipViewDisplayAnimation(AnimUtil.getScaleAnimation())
                     .build()
             }
             .setHighlightParameter {
@@ -64,6 +66,7 @@ class HighlightMoreFragment : Fragment() {
                     .setHighlightVerticalPadding(20f.dp)
                     .setConstraints(Constraints.TopToBottomOfHighlight + Constraints.EndToEndOfHighlight)
                     .setMarginOffset(MarginOffset(top = 8.dp))
+                    .setTipViewDisplayAnimation(AnimUtil.getScaleAnimation())
                     .build()
             }
             .setHighlightParameter {
@@ -75,6 +78,7 @@ class HighlightMoreFragment : Fragment() {
                     .setHighlightVerticalPadding(12f.dp)
                     .setConstraints(Constraints.BottomToTopOfHighlight + Constraints.EndToEndOfHighlight)
                     .setMarginOffset(MarginOffset(bottom = 6.dp))
+                    .setTipViewDisplayAnimation(AnimUtil.getScaleAnimation())
                     .build()
             }
             .setBackgroundColor("#80000000".toColorInt())

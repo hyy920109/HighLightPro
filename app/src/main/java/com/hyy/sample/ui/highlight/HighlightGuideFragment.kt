@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.BounceInterpolator
+import android.view.animation.TranslateAnimation
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.hyy.highlightpro.HighlightPro
@@ -54,6 +56,11 @@ class HighlightGuideFragment : Fragment() {
     }
 
     private fun showHighlight() {
+        //tipview animation
+        val translateAnimation = TranslateAnimation(-500f,0f,0f,0f)
+        translateAnimation.duration = 500
+        translateAnimation.interpolator = BounceInterpolator()
+
         HighlightPro.with(this)
             .setHighlightParameter {
                 HighlightParameter.Builder()
@@ -63,6 +70,7 @@ class HighlightGuideFragment : Fragment() {
                     .setHighlightHorizontalPadding(8f.dp)
                     .setConstraints(getConstraints())
                     .setMarginOffset(MarginOffset(4.dp, 4.dp, 4.dp, 4.dp))
+                    .setTipViewDisplayAnimation(translateAnimation)
                     .build()
             }
             .interceptBackPressed(true)

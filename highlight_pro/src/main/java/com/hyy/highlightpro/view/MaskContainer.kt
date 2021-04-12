@@ -107,9 +107,12 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
     }
 
     private fun addTipsView() {
-        highLightViewParameters.forEach {
-            it.tipsView?.run {
-                val layoutParams = calculateTipsViewLayoutParams(this, it)
+        highLightViewParameters.forEach {highLightViewParameters->
+            highLightViewParameters.tipsView?.run {
+                val layoutParams = calculateTipsViewLayoutParams(this, highLightViewParameters)
+                if (highLightViewParameters.tipViewDisplayAnimation != null){
+                   startAnimation(highLightViewParameters.tipViewDisplayAnimation)
+                }
                 addView(this, layoutParams)
             }
         }

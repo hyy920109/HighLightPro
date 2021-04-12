@@ -2,6 +2,7 @@ package com.hyy.highlightpro.parameter
 
 import android.graphics.RectF
 import android.view.View
+import android.view.animation.Animation
 import com.hyy.highlightpro.shape.HighlightShape
 
 /**
@@ -30,6 +31,8 @@ class HighlightParameter {
 
     internal var marginOffset: MarginOffset = MarginOffset()
     internal val constraints = mutableListOf(Constraints.TopToBottomOfHighlight, Constraints.StartToStartOfHighlight)
+
+    internal var tipViewDisplayAnimation:Animation? = null
 
     fun setHighLightViewId(viewId: Int) {
         this.highLightViewId = viewId
@@ -106,6 +109,13 @@ class HighlightParameter {
             highlightParameter.horizontalPadding = padding
             return this
         }
+
+        fun setTipViewDisplayAnimation(tipViewDisplayAnimation:Animation?):Builder{
+            highlightParameter.tipViewDisplayAnimation = tipViewDisplayAnimation
+            return this
+        }
+
+
 
         fun build(): HighlightParameter = highlightParameter
     }
