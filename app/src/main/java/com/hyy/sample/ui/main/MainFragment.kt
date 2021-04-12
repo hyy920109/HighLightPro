@@ -37,6 +37,10 @@ class MainFragment : Fragment() {
         binding.btnPopup.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_popupFragment)
         }
+
+        binding.btnRecyclerView.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_recyclerViewFragment)
+        }
     }
 
     companion object {
