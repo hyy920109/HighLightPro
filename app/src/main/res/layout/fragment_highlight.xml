@@ -11,23 +11,23 @@
         android:id="@+id/tv_title_constraints_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/constraints_vertical"
         android:textColor="#1b1b1b"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/constrains_vertical"
+        app:layout_constraintStart_toStartOf="@id/constrains_vertical"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/constrains_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/tv_title_constraints_vertical"
-        app:layout_constraintStart_toStartOf="@+id/tv_title_constraints_vertical"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_constraints_vertical"
         app:singleSelection="true">
 
@@ -58,12 +58,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/constraints_horizontal"
         android:textColor="#1b1b1b"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/constraints_horizontal"
+        app:layout_constraintStart_toStartOf="@id/constraints_horizontal"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -71,9 +71,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/tv_title_constraints_hor"
-        app:layout_constraintStart_toStartOf="@+id/tv_title_constraints_hor"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_constraints_hor"
         app:singleSelection="true">
 
@@ -103,6 +103,7 @@
         android:id="@+id/btn_show_highlight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="@string/show_highlight"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
