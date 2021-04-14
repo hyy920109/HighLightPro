@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sample</string>
+    <string name="app_name">HighlightPro</string>
     <string name="highlight_sample_more">Highlight Sample More Steps</string>
     <string name="highlight_sample">Highlight Sample</string>
     <string name="popup_window">Popup Window Sample</string>
