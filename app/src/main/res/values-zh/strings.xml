@@ -20,10 +20,10 @@
     <string name="im_here">I\'m here!!</string>
     <string name="click_here_to_next_step">点击进入下一步</string>
     <string name="im_here_multi_line">I\'m here!!\nI\'m here!!\nI\'m here!!\nI\'m here!!</string>
-    <string name="click_show_popup_window_des_bottom">点击图标，在图标下边展示PopuoWindow</string>
-    <string name="click_show_popup_window_des_top">点击图标，在图标上边展示PopuopWindow</string>
-    <string name="click_show_popup_window_des_left">点击图标，在图标左边展示PopuopWindow</string>
-    <string name="click_show_popup_window_des_right">点击图标，在图标右边展示PopuopWindow</string>
+    <string name="click_show_popup_window_des_bottom">点击图标，在图标下边展示PopupWindow</string>
+    <string name="click_show_popup_window_des_top">点击图标，在图标上边展示PopupWindow</string>
+    <string name="click_show_popup_window_des_left">点击图标，在图标左边展示PopupWindow</string>
+    <string name="click_show_popup_window_des_right">点击图标，在图标右边展示PopupWindow</string>
     <string name="step_first">第一步</string>
     <string name="step_second">第二步</string>
     <string name="step_third">第三步</string>
