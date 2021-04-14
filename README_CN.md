@@ -6,8 +6,9 @@
 
 - 可一次显示一个或多个高亮view
 - 通过水平约束和竖直约束来准确定位提示view
-- 自定义提示view的出现动画（待完成）
+- 自定义提示view的出现动画
 - 自定义高亮形状和大小
+- 自定义高亮形状的paint
 - 链式调用，使用简单
 - 支持简单的pop window
 
@@ -19,9 +20,25 @@
 
 ![guide_pro_popup_window](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro_popup.gif)
 
+
+
+
+![highlight_recycler_view](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_recycler_view.gif)
+
 ### 用法:
 
 #### Gradle
+
+在项目级的build.gradle文件种添加maven存储仓库Jitpack：
+
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        ...
+    }
+}
+```
 
 添加依赖到你的app的build.gradle 文件中：
 
@@ -183,7 +200,7 @@ HighlightPro.with(this)
 
 ##### 关于  [HighlightParameter.Builder](https://github.com/hyy920109/HighLightPro/blob/master/highlight_pro/src/main/java/com/hyy/highlightpro/parameter/HighlightParameter.kt)
 
-| 方法名                        | 藐视                                                         |
+| 方法名                        | 方法描述                                                     |
 | ----------------------------- | ------------------------------------------------------------ |
 | setHighlightViewId            | 设置高亮view的id                                             |
 | setHighlightView              | 设置高亮view                                                 |
