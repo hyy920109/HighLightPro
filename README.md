@@ -40,8 +40,8 @@ Add  maven repositories of jitpack in your project's ***build.gradle*** file:
 ```groovy
 allprojects {
     repositories {
-        maven { url 'https://jitpack.io' }
         ...
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
