@@ -10,9 +10,9 @@
 
 - Custom exact position of the tip view by  horizontal constraint and vertical constraint
 
-- Custom tip view display animation what you want **(TODO)**
+- Custom tip view display animation what you want
 
-- Custom highlight shape
+- Custom highlight shape and shape's paint
 
 - Chained code, simple to use
 
@@ -26,15 +26,31 @@
 
 ![guide_pro_popup_window](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro_popup.gif)
 
+
+
+
+![highlight_recycler_view](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_recycler_view.gif)
+
 ### Basic usage:
 
 #### Gradle
 
-Add dependence in your app's *build.gradle* file:
+Add  maven repositories of jitpack in your project's ***build.gradle*** file:
+
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        ...
+    }
+}
+```
+
+Add dependence in your app's ***build.gradle*** file:
 
 ```groovy
 dependencies {		
-	implementation 'com.github.hyy920109:GuidePro:1.0.1'
+	implementation 'com.github.hyy920109:GuidePro:1.0.3'
 }
 ```
 
@@ -256,5 +272,5 @@ setMarginOffset(MarginOffset(start = 8.dp))
 
 ### End
 
-Above we introduce all usages of [HighlightPro](https://github.com/hyy920109/HighLightPro) , if it helps you ,  star please. Or if you have some good advice, welcome commit a pull request.
+Above we introduce all usages of [HighlightPro](https://github.com/hyy920109/HighLightPro) , if it helps you ,  thanks for your star. Or if you have some good advice, welcome commit a pull request.
 
