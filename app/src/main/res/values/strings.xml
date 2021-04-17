@@ -30,4 +30,5 @@
     <string name="show_dialog">Show Dialog</string>
     <string name="highlight_one">Highlight One</string>
     <string name="highlight_two">Highlight Two</string>
+    <string name="click_item_show_highlight">Clicked item show highlight</string>
 </resources>

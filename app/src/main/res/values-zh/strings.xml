@@ -30,4 +30,5 @@
     <string name="show_dialog">展示Dialog</string>
     <string name="highlight_one">高亮一</string>
     <string name="highlight_two">高亮二</string>
+    <string name="click_item_show_highlight">点击Item能显示高亮哦</string>
 </resources>

@@ -14,16 +14,16 @@
 
 ### 效果图:
 
-![guide_pro](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro.gif)
+![guide_pro](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro_cn.gif)
 
 
 
-![guide_pro_popup_window](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro_popup.gif)
+![guide_pro_popup_window](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_pro_popup_cn.gif)
 
 
 
 
-![highlight_recycler_view](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_recycler_view.gif)
+![highlight_recycler_view](https://github.com/hyy920109/HighLightPro/blob/master/screenshots/highlight_recycler_view_cn.gif)
 
 ### 用法:
 
@@ -44,7 +44,7 @@ allprojects {
 
 ```groovy
 dependencies {		
-	implementation 'com.github.hyy920109:GuidePro:1.0.1'
+	implementation 'com.github.hyy920109:GuidePro:1.0.3'
 }
 ```
 
