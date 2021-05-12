@@ -73,11 +73,13 @@ fun with(fragment: Fragment): HighlightPro {
     return HighlightPro(fragment)
 }
 
+
 /**
- * the [view] treat as rootView
+ * the [container] treat as rootView and the container should be a FrameLayout or a viewGroup extends FrameLayout
+ * to ensure the UI can display normally
  */
-fun with(view: ViewGroup): HighlightPro {
-    return HighlightPro(view)
+fun with(container: FrameLayout): HighlightPro {
+    return HighlightPro(container)
 }
 ```
 

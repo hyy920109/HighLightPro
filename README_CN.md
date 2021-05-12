@@ -67,11 +67,12 @@ fun with(fragment: Fragment): HighlightPro {
     return HighlightPro(fragment)
 }
 
+
 /**
- * 会使用传进来的viewGroup作为父view
+ * 通过viewGroup来构建HighlightPro，这个ViewGroup一定要是FrameLayout或者FrameLayout的子类
  */
-fun with(view: ViewGroup): HighlightPro {
-    return HighlightPro(view)
+fun with(container: FrameLayout): HighlightPro {
+    return HighlightPro(container)
 }
 ```
 
