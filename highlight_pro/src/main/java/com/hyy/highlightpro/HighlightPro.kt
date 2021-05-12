@@ -3,6 +3,7 @@ package com.hyy.highlightpro
 import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.hyy.highlightpro.parameter.HighlightParameter
 import com.hyy.highlightpro.view.MaskContainer
@@ -128,10 +129,11 @@ class HighlightPro : HighlightViewInteractiveAction {
         }
 
         /**
-         * the [view] treat as rootView
+         * the [container] treat as rootView and the container should be a FrameLayout or a viewGroup extends FrameLayout
+         * to ensure the UI can display normally
          */
-        fun with(view: ViewGroup): HighlightPro {
-            return HighlightPro(view)
+        fun with(container: FrameLayout): HighlightPro {
+            return HighlightPro(container)
         }
     }
 }

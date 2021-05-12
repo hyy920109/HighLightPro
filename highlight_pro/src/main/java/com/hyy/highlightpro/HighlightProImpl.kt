@@ -160,7 +160,7 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
 
         if (parameter.tipsView == null && checkTipViewIdIsValid(parameter)) {
             parameter.tipsView = LayoutInflater.from(maskContainer.context)
-                .inflate(parameter.tipsViewId, null)
+                .inflate(parameter.tipsViewId, maskContainer, false)
         }
 
         if (parameter.highlightShape == null) {
