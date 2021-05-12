@@ -44,7 +44,7 @@ allprojects {
 
 ```groovy
 dependencies {		
-	implementation 'com.github.hyy920109:GuidePro:1.0.3'
+	implementation 'com.github.hyy920109:GuidePro:1.1.3'
 }
 ```
 
