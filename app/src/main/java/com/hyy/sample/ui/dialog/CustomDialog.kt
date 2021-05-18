@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
+import android.widget.FrameLayout
 import androidx.core.graphics.toColorInt
 import androidx.fragment.app.DialogFragment
 import com.hyy.highlightpro.HighlightPro
@@ -43,7 +44,7 @@ class CustomDialog : DialogFragment() {
     }
 
     private fun showHighlight() {
-        HighlightPro.with(dialog?.window?.decorView as ViewGroup)
+        HighlightPro.with(dialog?.window?.decorView as FrameLayout)
             .setHighlightParameter {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_1)
