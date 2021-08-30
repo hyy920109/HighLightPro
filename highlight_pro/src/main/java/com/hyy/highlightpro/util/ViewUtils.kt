@@ -36,6 +36,7 @@ fun View?.getRectOnScreen(): RectF {
 }
 
 fun HighlightParameter.calculateHighLightViewRect(rootView: ViewGroup) {
+    if (highLightView == null) return
     val rectOnScreen = highLightView.getRectOnScreen()
 
     //consider rootView's position

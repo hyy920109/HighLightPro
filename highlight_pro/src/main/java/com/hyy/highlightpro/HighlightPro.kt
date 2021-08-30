@@ -112,6 +112,11 @@ class HighlightPro : HighlightViewInteractiveAction {
         return this
     }
 
+    fun needAnchorTipView(needAnchorTipView: Boolean) : HighlightPro{
+        highlightProImpl.needAnchorTipView(needAnchorTipView)
+        return this
+    }
+
     companion object {
 
         /**

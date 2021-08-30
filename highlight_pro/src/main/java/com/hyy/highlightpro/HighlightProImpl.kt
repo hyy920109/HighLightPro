@@ -37,6 +37,7 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
     private var dismissCallback: (() -> Unit)? = null
     private var clickCallback: ((View) -> Unit)? = null
     private var autoNext = true
+    private var needAnchorTipView = true
 
     //    private var
     private val onClickListener = View.OnClickListener {
@@ -220,6 +221,11 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
 
     fun interceptBackPressed(interceptBackPressed: Boolean) {
         this.maskContainer.interceptBackPressed = interceptBackPressed
+    }
+
+    fun needAnchorTipView(needAnchorTipView: Boolean) {
+        this.needAnchorTipView = needAnchorTipView
+        this.maskContainer.needAnchorTipView = needAnchorTipView
     }
 
 }

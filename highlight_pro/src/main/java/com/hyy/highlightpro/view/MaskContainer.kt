@@ -35,6 +35,7 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
     private var backPressedCallback: (() -> Unit)? = null
     internal var enableHighlight = true
     internal var interceptBackPressed = false
+    internal var needAnchorTipView = true
 
     init {
         setWillNotDraw(false)
@@ -107,15 +108,33 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
     }
 
     private fun addTipsView() {
-        highLightViewParameters.forEach {highLightViewParameters->
-            highLightViewParameters.tipsView?.run {
-                val layoutParams = calculateTipsViewLayoutParams(this, highLightViewParameters)
-                if (highLightViewParameters.tipViewDisplayAnimation != null){
-                   startAnimation(highLightViewParameters.tipViewDisplayAnimation)
+        if (needAnchorTipView) {
+            highLightViewParameters.forEach {highLightViewParameters->
+                highLightViewParameters.tipsView?.run {
+                    val layoutParams = calculateTipsViewLayoutParams(this, highLightViewParameters)
+                    if (highLightViewParameters.tipViewDisplayAnimation != null){
+                        startAnimation(highLightViewParameters.tipViewDisplayAnimation)
+                    }
+                    addView(this, layoutParams)
                 }
-                addView(this, layoutParams)
+            }
+        } else {
+            highLightViewParameters.forEach {highLightViewParameters->
+                highLightViewParameters.tipsView?.run {
+                    var layoutParams = (this.layoutParams ?: LayoutParams(
+                        LayoutParams.WRAP_CONTENT,
+                        LayoutParams.WRAP_CONTENT
+                    )) as LayoutParams
+                    layoutParams.topMargin = highLightViewParameters.offsetY
+                    layoutParams.leftMargin = highLightViewParameters.offsetX
+                    if (highLightViewParameters.tipViewDisplayAnimation != null){
+                        startAnimation(highLightViewParameters.tipViewDisplayAnimation)
+                    }
+                    addView(this, layoutParams)
+                }
             }
         }
+
     }
 
     private fun calculateTipsViewLayoutParams(

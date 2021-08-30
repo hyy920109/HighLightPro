@@ -20,7 +20,7 @@ open class HighlightShape(val blurRadius: Float = 0.0f) {
             isDither = true
             color = Color.WHITE
         }
-        //paint blue style
+        //paint blur style
         if (blurRadius > 0) {
             paint.maskFilter = BlurMaskFilter(blurRadius, BlurMaskFilter.Blur.SOLID)
         }

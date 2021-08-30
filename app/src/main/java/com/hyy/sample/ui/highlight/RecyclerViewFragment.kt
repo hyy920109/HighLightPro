@@ -1,9 +1,9 @@
 package com.hyy.sample.ui.highlight
 
 import android.graphics.Rect
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -22,6 +22,7 @@ import com.hyy.sample.R
 import com.hyy.sample.databinding.FragmentRecyclerViewBinding
 import com.hyy.sample.ui.adapter.RecyclerViewAdapter
 import com.hyy.sample.ui.util.AnimUtil
+import com.hyy.sample.ui.util.setOnItemClickAndLongClickedListener
 
 class RecyclerViewFragment : Fragment() {
 
@@ -85,9 +86,48 @@ class RecyclerViewFragment : Fragment() {
             })
         }
 
-        adapter.setOnItemClickListener { adapter, view, position ->
+//        adapter.setOnItemClickListener { adapter, view, position ->
+//            showHighLight(view)
+//        }
+
+        binding.recyclerView.setOnItemClickAndLongClickedListener(itemClickListener = {e, view, position ->
             showHighLight(view)
+            return@setOnItemClickAndLongClickedListener true
+        }, { e, view, position ->
+
+            showLongHighLight(e)
+            return@setOnItemClickAndLongClickedListener true
+        })
+    }
+
+    private fun showLongHighLight(event: MotionEvent) {
+
+        val menuView = LayoutInflater.from(requireContext()).inflate(R.layout.menu_list_item, null)
+        menuView.findViewById<View>(R.id.btn_report).setOnClickListener {
+
         }
+        menuView.findViewById<View>(R.id.btn_black_list).setOnClickListener {
+
+        }
+        HighlightPro.with(this)
+            .setHighlightParameter {
+                HighlightParameter.Builder()
+                    .setTipsView(menuView)
+                    .offsetX(event.rawX.toInt())
+                    .offsetY(event.rawY.toInt())
+                    .build()
+            }
+            .needAnchorTipView(false)
+            .enableHighlight(false)
+            .setBackgroundColor("#00000000".toColorInt())
+            .setOnShowCallback { index ->
+                //do something
+            }
+            .setOnDismissCallback {
+                //do something
+            }
+            .interceptBackPressed(true)
+            .show()
     }
 
     private fun showHighLight(view: View) {
