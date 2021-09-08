@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.hyy.sample.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_highlightGuideFragment"
+            app:destination="@id/highlightGuideFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_popupFragment"
+            app:destination="@id/popupFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_highlightMoreFragment"
+            app:destination="@id/highlightMoreFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/highlightGuideFragment"
+        android:name="com.hyy.sample.ui.highlight.HighlightGuideFragment"
+        android:label="fragment_highlight"
+        tools:layout="@layout/fragment_highlight" />
+    <fragment
+        android:id="@+id/popupFragment"
+        android:name="com.hyy.sample.ui.popup.PopupFragment"
+        android:label="fragment_popup"
+        tools:layout="@layout/fragment_popup" />
+    <fragment
+        android:id="@+id/highlightMoreFragment"
+        android:name="com.hyy.sample.ui.highlight.HighlightMoreFragment"
+        android:label="HighlightMoreFragment" />
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="com.hyy.sample.ui.highlight.RecyclerViewFragment"
+        android:label="fragment_recycler_view" />
+</navigation>

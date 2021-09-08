@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.highlight.HighlightGuideFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title_constraints_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/constraints_vertical"
+        android:textColor="#1b1b1b"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/constrains_vertical"
+        app:layout_constraintStart_toStartOf="@id/constrains_vertical"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/constrains_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_constraints_vertical"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/top_to_top"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_top_to_top" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/top_to_bottom"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_top_to_bottom" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bottom_to_bottom"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_bottom_to_bottom" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bottom_to_top"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_bottom_to_top" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title_constraints_hor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/constraints_horizontal"
+        android:textColor="#1b1b1b"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/constraints_horizontal"
+        app:layout_constraintStart_toStartOf="@id/constraints_horizontal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/constraints_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_constraints_hor"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/start_to_start"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_start_to_start" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/start_to_end"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_start_to_end" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/end_to_end"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_end_to_end" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/end_to_start"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constrains_end_to_start" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_show_highlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/show_highlight"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraints_horizontal" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/hello_world"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
