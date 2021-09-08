@@ -3,6 +3,7 @@ package com.hyy.highlightpro.parameter
 import android.graphics.RectF
 import android.view.View
 import android.view.animation.Animation
+import androidx.annotation.IdRes
 import com.hyy.highlightpro.shape.HighlightShape
 
 /**
@@ -33,6 +34,8 @@ class HighlightParameter {
 
     internal var offsetX = 0
     internal var offsetY = 0
+
+    internal var clickIds = intArrayOf()
 
     internal val constraints =
         mutableListOf(Constraints.TopToBottomOfHighlight, Constraints.StartToStartOfHighlight)
@@ -151,6 +154,10 @@ class HighlightParameter {
         fun offsetY(offsetY: Int): Builder {
             highlightParameter.offsetY = offsetY
             return this
+        }
+
+        fun setTipViewClickIds(@IdRes vararg ids: Int) = this.apply {
+            highlightParameter.clickIds = ids
         }
 
         fun build(): HighlightParameter = highlightParameter

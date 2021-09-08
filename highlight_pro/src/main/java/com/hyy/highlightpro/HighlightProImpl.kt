@@ -72,11 +72,7 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
     override fun show() {
         if (released) return
         println("$TAG show")
-        //todo give user access to intercept click event
-//        if (!intercept) {
-        maskContainer.setOnClickListener(onClickListener)
-//        }
-
+        maskContainer.setOnClickCallback(onClickListener)
         //if constructor's param is activity or view wo care about rootView's attachedToWindow
         //if constructor's param is fragment we care about [fragmentRootView]'s width is not 0
         if ((isFragmentRoot.not() && rootView.isAttachToWindow()) ||
@@ -143,8 +139,8 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
             }
             showCallback?.invoke(curIndex)
             curIndex++
-            maskContainer.setRootWidth(rootView.width-rootView.paddingLeft-rootView.paddingRight)//ignore padding
-            maskContainer.setRootHeight(rootView.height-rootView.paddingTop-rootView.paddingBottom)//ignore padding
+            maskContainer.setRootWidth(rootView.width - rootView.paddingLeft - rootView.paddingRight)//ignore padding
+            maskContainer.setRootHeight(rootView.height - rootView.paddingTop - rootView.paddingBottom)//ignore padding
             maskContainer.setHighLightParameters(highlightParameters[0])
             highlightParameters.removeAt(0)
         }
@@ -171,7 +167,8 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
         parameter.calculateHighLightViewRect(rootView)
     }
 
-    private fun checkTipViewIdIsValid(parameter: HighlightParameter): Boolean = parameter.tipsViewId != -1
+    private fun checkTipViewIdIsValid(parameter: HighlightParameter): Boolean =
+        parameter.tipsViewId != -1
 
 
     private fun hasHighLightView(): Boolean = highlightParameters.isNotEmpty()

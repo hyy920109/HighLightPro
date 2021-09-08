@@ -1,6 +1,7 @@
 package com.hyy.sample.ui.highlight
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,6 +52,7 @@ class HighlightMoreFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_step_first)
                     .setTipsViewId(R.layout.guide_step_first)
+                    .setTipViewClickIds(R.id.tv_next)
                     .setHighlightShape(RectShape(4f.dp, 4f.dp, 6f))
                     .setHighlightHorizontalPadding(8f.dp)
                     .setConstraints(Constraints.StartToEndOfHighlight + Constraints.TopToTopOfHighlight)
@@ -62,6 +64,7 @@ class HighlightMoreFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_step_second)
                     .setTipsViewId(R.layout.guide_step_second)
+                    .setTipViewClickIds(R.id.tv_next)
                     .setHighlightShape(CircleShape().apply { setPaint(PaintUtils.getDashPaint()) })
                     .setHighlightHorizontalPadding(20f.dp)
                     .setHighlightVerticalPadding(20f.dp)
@@ -74,6 +77,7 @@ class HighlightMoreFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_step_third)
                     .setTipsViewId(R.layout.guide_step_third)
+                    .setTipViewClickIds(R.id.tv_next)
                     .setHighlightShape(OvalShape())
                     .setHighlightHorizontalPadding(12f.dp)
                     .setHighlightVerticalPadding(12f.dp)
@@ -88,6 +92,8 @@ class HighlightMoreFragment : Fragment() {
             }
             .setOnDismissCallback {
                 //do something
+            }
+            .setOnMaskViewClickCallback {
             }
             .interceptBackPressed(true)
             .show()

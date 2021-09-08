@@ -26,6 +26,7 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
     private var rootHeight: Int = 0
     private var bgColor: Int = -1
     private val highLightViewParameters = mutableListOf<HighlightParameter>()
+    private var clickListener: OnClickListener? = null
     private val defaultHighlightBgColor: Int
         get() = "#80000000".toColorInt()
 
@@ -104,22 +105,34 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
         highLightViewParameters.addAll(list)
 
         addTipsView()
-
     }
 
     private fun addTipsView() {
+        fun initClickViews(parameter: HighlightParameter, tipView: View) {
+            if (parameter.clickIds.isEmpty()) {
+                this.setOnClickListener(clickListener)
+                return
+            }
+            //给MaskContainer设置一个空的点击事件，避免往下传递
+            this.setOnClickListener {  }
+            parameter.clickIds.forEach { clickId ->
+                tipView.findViewById<View>(clickId)
+                    .setOnClickListener(clickListener)
+            }
+        }
         if (needAnchorTipView) {
-            highLightViewParameters.forEach {highLightViewParameters->
+            highLightViewParameters.forEach { highLightViewParameters ->
                 highLightViewParameters.tipsView?.run {
                     val layoutParams = calculateTipsViewLayoutParams(this, highLightViewParameters)
-                    if (highLightViewParameters.tipViewDisplayAnimation != null){
+                    if (highLightViewParameters.tipViewDisplayAnimation != null) {
                         startAnimation(highLightViewParameters.tipViewDisplayAnimation)
                     }
+                    initClickViews(highLightViewParameters, this)
                     addView(this, layoutParams)
                 }
             }
         } else {
-            highLightViewParameters.forEach {highLightViewParameters->
+            highLightViewParameters.forEach { highLightViewParameters ->
                 highLightViewParameters.tipsView?.run {
                     var layoutParams = (this.layoutParams ?: LayoutParams(
                         LayoutParams.WRAP_CONTENT,
@@ -127,9 +140,10 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
                     )) as LayoutParams
                     layoutParams.topMargin = highLightViewParameters.offsetY
                     layoutParams.leftMargin = highLightViewParameters.offsetX
-                    if (highLightViewParameters.tipViewDisplayAnimation != null){
+                    if (highLightViewParameters.tipViewDisplayAnimation != null) {
                         startAnimation(highLightViewParameters.tipViewDisplayAnimation)
                     }
+                    initClickViews(highLightViewParameters, this)
                     addView(this, layoutParams)
                 }
             }
@@ -217,6 +231,10 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
 
     fun setRootHeight(height: Int) {
         this.rootHeight = height
+    }
+
+    fun setOnClickCallback(listener: OnClickListener) {
+        clickListener = listener
     }
 
 }
