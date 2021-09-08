@@ -1,3 +1,0 @@
-include ':highlight_pro'
-include ':app'
-rootProject.name = "GuideSample"
