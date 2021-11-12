@@ -207,6 +207,7 @@ HighlightPro.with(this)
 | setHighlightView              | 设置高亮view                                                 |
 | setTipsViewId                 | 设置提示view的id                                             |
 | setTipsView                   | 设置提示view                                                 |
+| setTipViewClickId             | 设置TipView上可以点击的View的id，点击后进入下一步或退出      |
 | setHighlightShape             | 设置高亮形状                                                 |
 | setHighlightVerticalPadding   | 设置高亮区域的竖直padding                                    |
 | setHighlightHorizontalPadding | 设置高亮区域的水平padding                                    |
