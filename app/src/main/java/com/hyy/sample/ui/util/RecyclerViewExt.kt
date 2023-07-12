@@ -15,15 +15,15 @@ fun RecyclerView.setOnItemClickAndLongClickedListener(
         itemLongClickListener: ((e: MotionEvent, view: View, position: Int) -> Boolean)?,
 ) {
     val gestureDetector = GestureDetectorCompat(context, object : GestureDetectorCompat.CustomOnGestureListener {
-        override fun onDown(e: MotionEvent?): Boolean {
+        override fun onDown(e: MotionEvent): Boolean {
             return false
         }
 
-        override fun onShowPress(e: MotionEvent?) {
+        override fun onShowPress(e: MotionEvent) {
         }
 
-        override fun onSingleTapUp(e: MotionEvent?): Boolean {
-            e?.let {
+        override fun onSingleTapUp(e: MotionEvent): Boolean {
+            e.let {
                 findChildViewUnder(it.x, it.y)?.let { child ->
                     return itemClickListener?.invoke(it, child, getChildAdapterPosition(child)) ?: false
                 }
@@ -31,24 +31,24 @@ fun RecyclerView.setOnItemClickAndLongClickedListener(
             return false
         }
 
-        override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+        override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
             return false
         }
 
-        override fun onLongPress(e: MotionEvent?) {
+        override fun onLongPress(e: MotionEvent) {
 
         }
 
-        override fun onFling(e1: MotionEvent?, e2: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
+        override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
             return false
         }
 
-        override fun onUp(e1: MotionEvent?, e2: MotionEvent?, deltaX: Float, deltaY: Float): Boolean {
+        override fun onUp(e1: MotionEvent, e2: MotionEvent, deltaX: Float, deltaY: Float): Boolean {
             return false
         }
 
-        override fun onLongClicked(e: MotionEvent?): Boolean {
-            e?.let {
+        override fun onLongClicked(e: MotionEvent): Boolean {
+            e.let {
                 findChildViewUnder(it.x, it.y)?.let { child ->
                     return itemLongClickListener?.invoke(it, child, getChildAdapterPosition(child)) ?: false
                 }

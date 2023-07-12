@@ -50,7 +50,7 @@ Add dependence in your app's ***build.gradle*** file:
 
 ```groovy
 dependencies {		
-	implementation 'com.github.hyy920109:GuidePro:1.1.0'
+	implementation 'com.github.hyy920109:highlight-pro:1.3.0'
 }
 ```
 
