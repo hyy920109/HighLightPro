@@ -16,6 +16,8 @@
     <string name="constraints_top_to_bottom">顶对底</string>
     <string name="constraints_bottom_to_bottom">底对底</string>
     <string name="constraints_bottom_to_top">底对顶</string>
+    <string name="constraints_center_vertical">竖直居中</string>
+    <string name="constraints_center_horizontal">水平居中</string>
     <string name="show_highlight">展示高亮</string>
     <string name="im_here">I\'m here!!</string>
     <string name="click_here_to_next_step">点击进入下一步</string>

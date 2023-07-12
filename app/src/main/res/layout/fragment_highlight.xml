@@ -51,6 +51,11 @@
             style="@style/ToggleButtonStyle"
             android:text="@string/constraints_bottom_to_top" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/center_vertical"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_center_vertical" />
+
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -96,6 +101,11 @@
             android:id="@+id/end_to_start"
             style="@style/ToggleButtonStyle"
             android:text="@string/constrains_end_to_start" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/center_horizontal"
+            style="@style/ToggleButtonStyle"
+            android:text="@string/constraints_center_horizontal" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 

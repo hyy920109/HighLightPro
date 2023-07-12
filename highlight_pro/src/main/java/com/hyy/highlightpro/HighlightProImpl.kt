@@ -77,7 +77,7 @@ internal class HighlightProImpl : HighlightViewInteractiveAction {
         maskContainer.setOnClickListener(onClickListener)
 //        }
 
-        //if constructor's param is activity or view wo care about rootView's attachedToWindow
+        //if constructor's param is activity or view we care about rootView's attachedToWindow
         //if constructor's param is fragment we care about [fragmentRootView]'s width is not 0
         if ((isFragmentRoot.not() && rootView.isAttachToWindow()) ||
             (isFragmentRoot && fragmentRootView?.width != 0)

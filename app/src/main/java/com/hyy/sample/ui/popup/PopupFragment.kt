@@ -53,8 +53,7 @@ class PopupFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_tips_bottom)
                     .setTipsViewId(R.layout.pop_tips_layout_bottom)
-                    .setConstraints(Constraints.TopToBottomOfHighlight + Constraints.EndToEndOfHighlight)
-                    .setMarginOffset(MarginOffset(end = (-2).dp))
+                    .setConstraints(Constraints.TopToBottomOfHighlight + Constraints.CenterHorizontalOfHighlight)
                     .build()
             }
             .enableHighlight(false)//no highlight now is a popup window
@@ -68,8 +67,7 @@ class PopupFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_tips_top)
                     .setTipsViewId(R.layout.pop_tips_layout_top)
-                    .setConstraints(Constraints.BottomToTopOfHighlight + Constraints.EndToEndOfHighlight)
-                    .setMarginOffset(MarginOffset(end = (-2).dp))
+                    .setConstraints(Constraints.BottomToTopOfHighlight + Constraints.CenterHorizontalOfHighlight)
                     .build()
             }
             .enableHighlight(false)//no highlight now is a popup window
@@ -83,8 +81,7 @@ class PopupFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_tips_left)
                     .setTipsViewId(R.layout.pop_tips_layout_left)
-                    .setConstraints(Constraints.EndToStartOfHighlight + Constraints.TopToTopOfHighlight)
-                    .setMarginOffset(MarginOffset(top = (-2).dp))
+                    .setConstraints(Constraints.EndToStartOfHighlight + Constraints.CenterVerticalOfHighlight)
                     .build()
             }
             .enableHighlight(false)//no highlight now is a popup window
@@ -98,8 +95,7 @@ class PopupFragment : Fragment() {
                 HighlightParameter.Builder()
                     .setHighlightViewId(R.id.btn_tips_right)
                     .setTipsViewId(R.layout.pop_tips_layout_right)
-                    .setConstraints(Constraints.StartToEndOfHighlight + Constraints.TopToTopOfHighlight)
-                    .setMarginOffset(MarginOffset(top = (-2).dp))
+                    .setConstraints(Constraints.StartToEndOfHighlight + Constraints.CenterVerticalOfHighlight)
                     .build()
             }
             .enableHighlight(false)//no highlight now is a popup window

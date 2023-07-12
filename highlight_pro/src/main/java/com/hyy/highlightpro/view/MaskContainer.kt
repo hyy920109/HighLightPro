@@ -10,6 +10,8 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.graphics.toColorInt
 import androidx.core.view.children
+import androidx.core.view.doOnLayout
+import androidx.core.view.doOnPreDraw
 import com.hyy.highlightpro.parameter.Constraints
 import com.hyy.highlightpro.parameter.HighlightParameter
 import com.hyy.highlightpro.HighlightProImpl
@@ -21,6 +23,9 @@ import com.hyy.highlightpro.HighlightProImpl
  */
 internal class MaskContainer constructor(context: Context, attributeSet: AttributeSet? = null) :
     FrameLayout(context, attributeSet) {
+    companion object {
+        const val TAG = "MaskContainer"
+    }
 
     private var rootWidth: Int = 0
     private var rootHeight: Int = 0
@@ -109,17 +114,20 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
 
     private fun addTipsView() {
         if (needAnchorTipView) {
-            highLightViewParameters.forEach {highLightViewParameters->
+            highLightViewParameters.forEach { highLightViewParameters ->
                 highLightViewParameters.tipsView?.run {
                     val layoutParams = calculateTipsViewLayoutParams(this, highLightViewParameters)
-                    if (highLightViewParameters.tipViewDisplayAnimation != null){
+                    if (highLightViewParameters.tipViewDisplayAnimation != null) {
                         startAnimation(highLightViewParameters.tipViewDisplayAnimation)
                     }
                     addView(this, layoutParams)
+                    highLightViewParameters.tipsView?.doOnPreDraw {
+
+                    }
                 }
             }
         } else {
-            highLightViewParameters.forEach {highLightViewParameters->
+            highLightViewParameters.forEach { highLightViewParameters ->
                 highLightViewParameters.tipsView?.run {
                     var layoutParams = (this.layoutParams ?: LayoutParams(
                         LayoutParams.WRAP_CONTENT,
@@ -127,7 +135,7 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
                     )) as LayoutParams
                     layoutParams.topMargin = highLightViewParameters.offsetY
                     layoutParams.leftMargin = highLightViewParameters.offsetX
-                    if (highLightViewParameters.tipViewDisplayAnimation != null){
+                    if (highLightViewParameters.tipViewDisplayAnimation != null) {
                         startAnimation(highLightViewParameters.tipViewDisplayAnimation)
                     }
                     addView(this, layoutParams)
@@ -146,6 +154,7 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
             LayoutParams.WRAP_CONTENT
         )) as LayoutParams
 
+        println("$TAG calculateTipsViewLayoutParams tipsView layoutParams--> $layoutParams")
         val margin = parameter.marginOffset
         val highLightRect = parameter.rect
         val gravities = mutableListOf<Int>()
@@ -196,6 +205,43 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
                 Constraints.TopToBottomOfHighlight -> {
                     layoutParams.topMargin = (highLightRect.bottom + margin.top).toInt()
                     gravities.add(Gravity.TOP)
+                }
+
+                Constraints.CenterHorizontalOfHighlight -> {
+                    val width = layoutParams.width
+
+                    if (width <= 0) {
+                        layoutParams.leftMargin =
+                            (highLightRect.left + highLightRect.width() / 2f).toInt()
+                        gravities.add(Gravity.START)
+                        view.doOnPreDraw { tipsView ->
+                            layoutParams.leftMargin =
+                                (highLightRect.left + highLightRect.width() / 2f - tipsView.width / 2f).toInt()
+                            view.layoutParams = layoutParams
+                        }
+                    } else {
+                        layoutParams.leftMargin =
+                            (highLightRect.left + highLightRect.width() / 2f - width / 2f).toInt()
+                        gravities.add(Gravity.START)
+                    }
+                }
+
+                Constraints.CenterVerticalOfHighlight -> {
+                    val height = layoutParams.height
+                    if (height <= 0) {
+                        layoutParams.topMargin =
+                            (highLightRect.top + highLightRect.height() / 2f).toInt()
+                        gravities.add(Gravity.TOP)
+                        view.doOnPreDraw { tipsView ->
+                            layoutParams.topMargin =
+                                (highLightRect.top + highLightRect.height() / 2f - tipsView.height / 2f).toInt()
+                            view.layoutParams = layoutParams
+                        }
+                    } else {
+                        layoutParams.topMargin =
+                            (highLightRect.top + highLightRect.height() / 2f - height / 2f).toInt()
+                        gravities.add(Gravity.TOP)
+                    }
                 }
             }
         }

@@ -2,13 +2,15 @@
 
 [中文](https://github.com/hyy920109/HighLightPro/blob/master/README_CN.md)
 
+[![Release](https://jitpack.io/v/jitpack/android-example.svg)](https://jitpack.io/#hyy920109/HighLightPro)
+
 **HighlightPro** is a highlight library for android and also it can be a simple popup window library for android.
 
 ### Features:
 
 - One or more highlighted views can be displayed at once
 
-- Custom exact position of the tip view by  horizontal constraint and vertical constraint
+- Custom exact position of the tip view by  horizontal constraint or vertical constraint or center constraint
 
 - Custom tip view display animation what you want
 
@@ -50,7 +52,7 @@ Add dependence in your app's ***build.gradle*** file:
 
 ```groovy
 dependencies {		
-	implementation 'com.github.hyy920109:highlight-pro:1.3.0'
+	implementation 'com.github.hyy920109:HighLightPro:1.4.0'
 }
 ```
 
@@ -250,13 +252,15 @@ It is the core class which determine the position of tips view. Like Android's C
 | TopToBottomOfHighlight    | Align tips view **top** to **bottom** of highlight rect.    |
 | BottomToBottomOfHighlight | Align tips view **bottom** to **bottom** of highlight rect. |
 | BottomToTopOfHighlight    | Align tips view **bottom** to **top** of highlight rect.    |
+| CenterVerticalOfHighlight | Align tips view **center vertical** of highlight rect.      |
 
-| Horizontal Constraint   | Description                                               |
-| ----------------------- | --------------------------------------------------------- |
-| StartToStartOfHighlight | Align tips view **start** to **start** of highlight rect. |
-| StartToEndOfHighlight   | Align tips view **start** to **end** of highlight rect.   |
-| EndToEndOfHighlight     | Align tips view **end** to **end** of highlight rect.     |
-| EndToStartOfHighlight   | Align tips view **end** to **start** of highlight rect.   |
+| Horizontal Constraint       | Description                                               |
+| --------------------------- | --------------------------------------------------------- |
+| StartToStartOfHighlight     | Align tips view **start** to **start** of highlight rect. |
+| StartToEndOfHighlight       | Align tips view **start** to **end** of highlight rect.   |
+| EndToEndOfHighlight         | Align tips view **end** to **end** of highlight rect.     |
+| EndToStartOfHighlight       | Align tips view **end** to **start** of highlight rect.   |
+| CenterHorizontalOfHighlight | Align tips view **center horizontal** of highlight rect.  |
 
 **Note**
 

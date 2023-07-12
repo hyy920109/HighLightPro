@@ -1,11 +1,13 @@
 # HighlightPro
 
+[![Release](https://jitpack.io/v/jitpack/android-example.svg)](https://jitpack.io/#hyy920109/HighLightPro)
+
 **HighlightPro** 是Android的一个高亮引导库，同时它还可以是一个简单的popup window库
 
 ### 功能:
 
 - 可一次显示一个或多个高亮view
-- 通过水平约束和竖直约束来准确定位提示view
+- 通过水平约束、竖直约束、**居中约束**来准确定位提示view
 - 自定义提示view的出现动画
 - 自定义高亮形状和大小
 - 自定义高亮形状的paint
@@ -44,7 +46,7 @@ allprojects {
 
 ```groovy
 dependencies {		
-	implementation 'com.github.hyy920109:highlight-pro:1.3.0'
+	implementation 'com.github.hyy920109:HighLightPro:1.4.0'
 }
 ```
 
@@ -243,13 +245,15 @@ HighlightPro.with(this)
 | TopToBottomOfHighlight    | 将提示view顶部和高亮矩形底部对齐 |
 | BottomToBottomOfHighlight | 将提示view底部和高亮矩形底部对齐 |
 | BottomToTopOfHighlight    | 将提示view底部和高亮矩形顶部对齐 |
+| CenterVerticalOfHighlight | 将提示view和高亮矩形竖直居中     |
 
-| Horizontal Constraint   | 属性描述                         |
-| ----------------------- | -------------------------------- |
-| StartToStartOfHighlight | 将提示view左侧和高亮矩形左侧对齐 |
-| StartToEndOfHighlight   | 将提示view左侧和高亮矩形右侧对齐 |
-| EndToEndOfHighlight     | 将提示view右侧和高亮矩形右侧对齐 |
-| EndToStartOfHighlight   | 将提示view右侧和高亮矩形左侧对齐 |
+| Horizontal Constraint       | 属性描述                         |
+| --------------------------- | -------------------------------- |
+| StartToStartOfHighlight     | 将提示view左侧和高亮矩形左侧对齐 |
+| StartToEndOfHighlight       | 将提示view左侧和高亮矩形右侧对齐 |
+| EndToEndOfHighlight         | 将提示view右侧和高亮矩形右侧对齐 |
+| EndToStartOfHighlight       | 将提示view右侧和高亮矩形左侧对齐 |
+| CenterHorizontalOfHighlight | 将提示view和高亮矩形水平居中     |
 
 **注意**
 

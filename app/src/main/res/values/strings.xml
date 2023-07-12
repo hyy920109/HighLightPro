@@ -16,6 +16,8 @@
     <string name="constraints_top_to_bottom">Top to Btm</string>
     <string name="constraints_bottom_to_bottom">Btm to Btm</string>
     <string name="constraints_bottom_to_top">Btm to Top</string>
+    <string name="constraints_center_vertical">Center Vertical</string>
+    <string name="constraints_center_horizontal">Center Horizontal</string>
     <string name="show_highlight">Show Highlight</string>
     <string name="im_here">I\'m here!!</string>
     <string name="click_here_to_next_step">Click here to next step</string>

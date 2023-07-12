@@ -8,7 +8,7 @@
         android:id="@+id/arrow_top"
         android:layout_width="12dp"
         android:layout_height="8dp"
-        android:layout_marginEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_tips"
         app:layout_constraintEnd_toEndOf="parent"
         app:tv_arrow_dir="dir_top"

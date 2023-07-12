@@ -84,6 +84,7 @@ class HighlightGuideFragment : Fragment() {
         R.id.top_to_top -> Constraints.TopToTopOfHighlight
         R.id.top_to_bottom -> Constraints.TopToBottomOfHighlight
         R.id.bottom_to_bottom -> Constraints.BottomToBottomOfHighlight
+        R.id.center_vertical -> Constraints.CenterVerticalOfHighlight
         else -> Constraints.BottomToTopOfHighlight
     }
 
@@ -91,6 +92,7 @@ class HighlightGuideFragment : Fragment() {
         R.id.start_to_start -> Constraints.StartToStartOfHighlight
         R.id.start_to_end -> Constraints.StartToEndOfHighlight
         R.id.end_to_end -> Constraints.EndToEndOfHighlight
+        R.id.center_horizontal -> Constraints.CenterHorizontalOfHighlight
         else -> Constraints.EndToStartOfHighlight
     }
 

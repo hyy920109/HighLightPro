@@ -8,9 +8,9 @@
         android:id="@+id/arrow_right"
         android:layout_width="8dp"
         android:layout_height="12dp"
-        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:tv_arrow_dir="dir_right"
         app:tv_bg_color="#80000000" />
 
