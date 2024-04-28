@@ -8,13 +8,19 @@ import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.toColorInt
+import androidx.core.os.ConfigurationCompat
+import androidx.core.view.ViewCompat
 import androidx.core.view.children
 import androidx.core.view.doOnLayout
 import androidx.core.view.doOnPreDraw
 import com.hyy.highlightpro.parameter.Constraints
 import com.hyy.highlightpro.parameter.HighlightParameter
 import com.hyy.highlightpro.HighlightProImpl
+import com.hyy.highlightpro.R
+import kotlin.math.abs
 
 /**
  *Create by hyy on 2021/2/6
@@ -158,11 +164,18 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
         val margin = parameter.marginOffset
         val highLightRect = parameter.rect
         val gravities = mutableListOf<Int>()
+        val locale = ConfigurationCompat.getLocales(resources.configuration).get(0)?.toLanguageTag()
         parameter.constraints.forEach {
             when (it) {
                 Constraints.StartToStartOfHighlight -> {
-                    layoutParams.leftMargin = (highLightRect.left + margin.start).toInt()
-                    gravities.add(Gravity.START)
+                    if (resources.configuration.layoutDirection == ViewCompat.LAYOUT_DIRECTION_LTR && locale != "ku") {
+                        layoutParams.leftMargin = (highLightRect.left + margin.start).toInt()
+                        gravities.add(Gravity.START)
+                    } else {
+                        layoutParams.rightMargin =
+                            (rootWidth - highLightRect.right + margin.end).toInt()
+                        gravities.add(Gravity.START)
+                    }
                 }
 
                 Constraints.EndToStartOfHighlight -> {
@@ -179,9 +192,14 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
                 }
 
                 Constraints.EndToEndOfHighlight -> {
-                    layoutParams.rightMargin =
-                        (rootWidth - highLightRect.right + margin.end).toInt()
-                    gravities.add(Gravity.END)
+                    if (resources.configuration.layoutDirection == ViewCompat.LAYOUT_DIRECTION_LTR && locale != "ku") {
+                        layoutParams.rightMargin =
+                            (rootWidth - highLightRect.right + margin.end).toInt()
+                        gravities.add(Gravity.END)
+                    } else {
+                        layoutParams.leftMargin = (highLightRect.left + margin.start).toInt()
+                        gravities.add(Gravity.END)
+                    }
                 }
 
                 Constraints.TopToTopOfHighlight -> {
@@ -209,14 +227,16 @@ internal class MaskContainer constructor(context: Context, attributeSet: Attribu
 
                 Constraints.CenterHorizontalOfHighlight -> {
                     val width = layoutParams.width
-
                     if (width <= 0) {
-                        layoutParams.leftMargin =
-                            (highLightRect.left + highLightRect.width() / 2f).toInt()
+                        val transitFromCenter = (highLightRect.left + highLightRect.right - rootWidth)
+                        layoutParams.rightMargin = abs(transitFromCenter).toInt()/2
+                        layoutParams.leftMargin = abs(transitFromCenter).toInt()/2
                         gravities.add(Gravity.START)
                         view.doOnPreDraw { tipsView ->
+                            layoutParams.rightMargin =
+                                (rootWidth - transitFromCenter - tipsView.width).toInt() / 2
                             layoutParams.leftMargin =
-                                (highLightRect.left + highLightRect.width() / 2f - tipsView.width / 2f).toInt()
+                                (rootWidth + transitFromCenter - tipsView.width).toInt() / 2
                             view.layoutParams = layoutParams
                         }
                     } else {

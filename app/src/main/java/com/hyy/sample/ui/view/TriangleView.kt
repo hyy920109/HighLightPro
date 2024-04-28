@@ -40,7 +40,7 @@ class TriangleView constructor(
         typedArray.recycle()
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         path.reset()
         when(direction) {
@@ -49,28 +49,28 @@ class TriangleView constructor(
                 path.lineTo(measuredWidth/2f, 0f.dp)
                 path.lineTo(measuredWidth*1f, measuredHeight*1f)
                 path.close()
-                canvas?.drawPath(path, paint)
+                canvas.drawPath(path, paint)
             }
             DIR.BOTTOM.dir -> {
                 path.moveTo(0f, 0f)
                 path.lineTo(measuredWidth/2f, measuredHeight*1f)
                 path.lineTo(measuredWidth*1f, 0f)
                 path.close()
-                canvas?.drawPath(path, paint)
+                canvas.drawPath(path, paint)
             }
             DIR.LEFT.dir -> {
                 path.moveTo(measuredWidth*1f, 0f)
                 path.lineTo(0f, measuredHeight/2f)
                 path.lineTo(measuredWidth*1f, measuredHeight*1f)
                 path.close()
-                canvas?.drawPath(path, paint)
+                canvas.drawPath(path, paint)
             }
             DIR.RIGHT.dir -> {
                 path.moveTo(0f, 0f)
                 path.lineTo(measuredWidth*1f, measuredHeight/2f)
                 path.lineTo(0f, measuredHeight*1f)
                 path.close()
-                canvas?.drawPath(path, paint)
+                canvas.drawPath(path, paint)
             }
         }
 
